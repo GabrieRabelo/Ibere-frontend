@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.css';
-import DetalheInstituicaoContainer from './containers/DetalheInstituicaoContainer';
+import HomeView from './views/home';
 
 function App() {
   return (
-    <DetalheInstituicaoContainer
-      titulo={'Fundação Ibere Camargo'}
-      endereco={'Avenida Padre Cacique, 1720'}
-    />
+    <div className="App">
+      <header className="App-header"></header>
+
+      <HomeView />
+    </div>
   );
 }
 
