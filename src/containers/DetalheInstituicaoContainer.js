@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Grid } from '@material-ui/core';
+
 type Props = {
   titulo: '',
   endereco: ''
@@ -16,12 +18,23 @@ class DetalheInstituicaoContainer extends Component<Props> {
   render() {
     return (
       <div>
-        <h1>{this.props.titulo}</h1>
-        <div>{this.props.endereco}</div>
-        <div>Aberto</div>
-        <div>
-          <button style={style}>Rotas</button>
-        </div>
+        <Grid container spacing={8}>
+          <Grid item xs={8}>
+            <h1>{this.props.titulo}</h1>
+            <div>{this.props.endereco}</div>
+            <div>Aberto</div>
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            item
+            xs={4}
+          >
+            <button style={style}>Rotas</button>
+          </Grid>
+        </Grid>
         <hr />
       </div>
     );
@@ -31,5 +44,5 @@ class DetalheInstituicaoContainer extends Component<Props> {
 export default DetalheInstituicaoContainer;
 
 const style = {
-  borderRadius: '4px'
+  borderRadius: '5px'
 };
