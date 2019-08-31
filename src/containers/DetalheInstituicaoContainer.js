@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Grid } from '@material-ui/core';
 
 type Props = {
@@ -21,8 +20,8 @@ class DetalheInstituicaoContainer extends Component<Props> {
         <Grid container spacing={8}>
           <Grid item xs={8}>
             <h1>{this.props.titulo}</h1>
-            <div>{this.props.endereco}</div>
-            <div>Aberto</div>
+            <div style={{ color: 'grey' }}>{this.props.endereco}</div>
+            <div style={{ color: 'green' }}>Aberto</div>
           </Grid>
           <Grid
             container
