@@ -43,5 +43,6 @@ class DetalheInstituicaoContainer extends Component<Props> {
 export default DetalheInstituicaoContainer;
 
 const style = {
-  borderRadius: '5px'
+  borderRadius: '5px',
+  outline: '0'
 };

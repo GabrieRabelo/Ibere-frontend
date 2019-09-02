@@ -6,7 +6,7 @@ import DetalheInstituicaoContainer from './containers/DetalheInstituicaoContaine
 function App() {
   return (
     <Grid id justify="center" container spacing={12}>
-      <Grid item xs={8}>
+      <Grid item xs={12}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <DetalheInstituicaoContainer
@@ -15,19 +15,19 @@ function App() {
             ></DetalheInstituicaoContainer>
           </Grid>
           {/* A completar abaixo */}
-          <Grid item xs={4}>
+          <Grid item xs={5}>
             <Paper style={{ background: 'silver' }}>
               Horários
-              <p>seg 00:00 - 00:00</p>
-              <p>seg 00:00 - 00:00</p>
-              <p>seg 00:00 - 00:00</p>
-              <p>seg 00:00 - 00:00</p>
-              <p>seg 00:00 - 00:00</p>
-              <p>seg 00:00 - 00:00</p>
-              <p>seg 00:00 - 00:00</p>
+              <p>DOM 00:00 - 00:00</p>
+              <p>SEG 00:00 - 00:00</p>
+              <p>TER 00:00 - 00:00</p>
+              <p>QUA 00:00 - 00:00</p>
+              <p>QUI 00:00 - 00:00</p>
+              <p>SEX 00:00 - 00:00</p>
+              <p>SAB 00:00 - 00:00</p>
             </Paper>
           </Grid>
-          <Grid container spacing={2} item xs={8}>
+          <Grid container spacing={2} item xs={7}>
             <Grid item xs={12}>
               A Fundação Iberê Camargo, sediada na cidade brasileira de Porto
               Alegre, é uma entidade cultural que tem como objetivos a
