@@ -1,0 +1,39 @@
+import React, { Component } from 'react';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
+
+export class Instituicao extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const { instituicao } = this.props;
+
+    return (
+      <ListItem button alignItems="flex-start" key={instituicao.id}>
+        <ListItemText
+          primary={instituicao.nome}
+          secondary={
+            <React.Fragment>
+              <Typography
+                component="span"
+                variant="body2"
+                className="AS"
+                color="textPrimary"
+              >
+                {instituicao.descricao}
+              </Typography>
+              {` ${instituicao.telefone} | Aberto agora: ${
+                instituicao.aberto ? 'Sim' : 'Não'
+              } `}
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+    );
+  }
+}
+
+export default Instituicao;

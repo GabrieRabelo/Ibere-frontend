@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import Sidebar from '../sidebar';
-import Map from '../map';
+import Sidebar from '../../components/sidebar';
+import Map from '../../components/map';
 
 class Home extends Component {
   render() {
