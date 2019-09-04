@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
+import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
 
 type Props = {
   titulo: '',
@@ -16,7 +18,7 @@ class DetalheInstituicaoContainer extends Component<Props> {
 
   render() {
     return (
-      <Grid id justify="center" container spacing={12}>
+      <Grid id justify="center" container spacing={10}>
         <Grid item xs={12}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
@@ -43,60 +45,12 @@ class DetalheInstituicaoContainer extends Component<Props> {
             </Grid>
             {/* A completar abaixo */}
             <Grid item xs={5}>
-              <Paper style={{ background: 'silver' }}>
-                <Grid>
-                  <p style={{ marginBottom: '0vh' }}>Horários</p>
-                </Grid>
-
-                <Grid container>
-                  <Grid item xs={4}>
-                    <p>DOM</p>
-                  </Grid>
-                  <Grid item xs={8}>
-                    <p>00:00 - 00:00</p>
-                  </Grid>
-                </Grid>
-                <Grid container>
-                  <Grid item xs={4}>
-                    <p>DOM</p>
-                  </Grid>
-                  <Grid item xs={8}>
-                    <p>00:00 - 00:00</p>
-                  </Grid>
-                </Grid>
-                <Grid container>
-                  <Grid item xs={4}>
-                    <p>DOM</p>
-                  </Grid>
-                  <Grid item xs={8}>
-                    <p>00:00 - 00:00</p>
-                  </Grid>
-                </Grid>
-                <Grid container>
-                  <Grid item xs={4}>
-                    <p>DOM</p>
-                  </Grid>
-                  <Grid item xs={8}>
-                    <p>00:00 - 00:00</p>
-                  </Grid>
-                </Grid>
-                <Grid container>
-                  <Grid item xs={4}>
-                    <p>DOM</p>
-                  </Grid>
-                  <Grid item xs={8}>
-                    <p>00:00 - 00:00</p>
-                  </Grid>
-                </Grid>
-              </Paper>
+              <TabelaHorarioComponent />
             </Grid>
 
             <Grid container spacing={2} item xs={7}>
               <Grid item xs={12}>
-                A Fundação Iberê Camargo, sediada na cidade brasileira de Porto
-                Alegre, é uma entidade cultural que tem como objetivos a
-                preservação, o estudo e a divulgação da obra do pintor gaúcho
-                Iberê Camargo (1914-1994).
+                <DescricaoInstituicaoComponent />
               </Grid>
               <Grid item xs={12}>
                 <p>E-mail:</p>
