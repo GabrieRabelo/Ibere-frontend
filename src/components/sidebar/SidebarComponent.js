@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import List from '@material-ui/core/List';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import { List, AppBar, Tabs, Tab } from '@material-ui/core';
 
-import TabPanel from '../tabPanel/TabPanelComponent';
 import Instituicao from '../instituicao';
+import TabPanel from '../tabPanel/TabPanelComponent';
 
 class SidebarView extends Component {
   constructor(props) {
@@ -13,7 +10,8 @@ class SidebarView extends Component {
 
     this.state = {
       instituicoes: [],
-      value: 0
+      value: 0,
+      modalOpen: false
     };
 
     this.getInstituicoes();
@@ -57,7 +55,13 @@ class SidebarView extends Component {
           <TabPanel value={this.state.value} index={0}>
             <List component="nav" aria-label="main mailbox folders">
               {this.state.instituicoes.map(instituicao => (
-                <Instituicao instituicao={instituicao} key={instituicao.id} />
+                <Instituicao
+                  instituicao={instituicao}
+                  key={instituicao.id}
+                  handleOpen={() => {
+                    this.handleOpen();
+                  }}
+                />
               ))}
             </List>
           </TabPanel>

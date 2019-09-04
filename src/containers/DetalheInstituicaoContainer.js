@@ -18,7 +18,7 @@ class DetalheInstituicaoContainer extends Component<Props> {
 
   render() {
     return (
-      <Grid id justify="center" container spacing={10}>
+      <Grid id justify="center" container spacing={12}>
         <Grid item xs={12}>
           <Grid container spacing={3}>
             <Grid item xs={12}>

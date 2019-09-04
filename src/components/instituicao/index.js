@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
+import { ListItem, ListItemText, Typography } from '@material-ui/core';
 
 export class Instituicao extends Component {
   constructor(props) {
