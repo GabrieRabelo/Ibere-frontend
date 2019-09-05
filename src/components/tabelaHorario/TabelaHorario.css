@@ -1,0 +1,16 @@
+.GridHorarios{
+    background-color: silver;
+    border-radius: 5%;
+    padding: 2%;
+    margin-left: 5px;
+}
+.Horario{
+    display: flex;
+    justify-content: center;
+    height: 10px;
+}
+
+.dia{
+    font-size: 14px;
+    height: 35px;
+}
