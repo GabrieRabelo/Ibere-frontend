@@ -18,7 +18,7 @@ class DetalheInstituicaoContainer extends Component<Props> {
 
   render() {
     return (
-      <Grid id justify="center" container spacing={12}>
+        <Grid id justify="center" container spacing={12}>
         <Grid item xs={12}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
@@ -43,7 +43,6 @@ class DetalheInstituicaoContainer extends Component<Props> {
                 <hr />
               </div>
             </Grid>
-            {/* A completar abaixo */}
             <Grid item xs={5}>
               <TabelaHorarioComponent />
             </Grid>
