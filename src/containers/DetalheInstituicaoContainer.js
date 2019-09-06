@@ -18,14 +18,14 @@ class DetalheInstituicaoContainer extends Component<Props> {
 
   render() {
     return (
-        <Grid id justify="center" container spacing={12}>
+      <Grid id justify="center" container spacing={12}>
         <Grid item xs={12}>
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             <Grid item xs={12}>
               <div>
-                <Grid container spacing={8}>
-                  <Grid item xs={8}>
-                    <h1>{this.props.titulo}</h1>
+                <Grid container spacing={1}>
+                  <Grid item xs={9}>
+                    <h1 style={{ fontSize: '24px' }}>{this.props.titulo}</h1>
                     <div style={{ color: 'grey' }}>{this.props.endereco}</div>
                     <div style={{ color: 'green' }}>Aberto</div>
                   </Grid>
@@ -35,7 +35,7 @@ class DetalheInstituicaoContainer extends Component<Props> {
                     justify="center"
                     alignItems="center"
                     item
-                    xs={4}
+                    xs={3}
                   >
                     <button style={style}>Rotas</button>
                   </Grid>
@@ -69,6 +69,6 @@ class DetalheInstituicaoContainer extends Component<Props> {
 export default DetalheInstituicaoContainer;
 
 const style = {
-  borderRadius: '5px',
+  borderRadius: '50%',
   outline: '0'
 };
