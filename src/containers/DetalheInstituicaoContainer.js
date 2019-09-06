@@ -19,7 +19,7 @@ class DetalheInstituicaoContainer extends Component<Props> {
 
   render() {
     return (
-      <Grid id justify="center" container spacing={12}>
+      <Grid id justify="center" container spacing={10}>
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -57,8 +57,7 @@ class DetalheInstituicaoContainer extends Component<Props> {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              {/*slider*/}
-              Carrossel
+              Carrossel ficará aqui
             </Grid>
           </Grid>
         </Grid>

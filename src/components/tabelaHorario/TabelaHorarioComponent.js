@@ -4,7 +4,7 @@ import './TabelaHorario.css';
 
 const TabelaHorarioComponent = () => {
   return (
-    <Paper style={{ backgroundColor: 'gray' }}>
+    <Paper style={{ backgroundColor: 'darkgray' }}>
       <Grid>
         <p className="Horario">Horários</p>
       </Grid>
