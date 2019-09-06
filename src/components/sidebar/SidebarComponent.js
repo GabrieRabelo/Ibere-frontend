@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, AppBar, Tabs, Tab } from '@material-ui/core';
+import { List, AppBar, Tabs, Tab, Drawer, Button, Typography } from '@material-ui/core';
 
 import Instituicao from '../instituicao';
 import TabPanel from '../tabPanel/TabPanelComponent';
@@ -45,11 +45,11 @@ class SidebarView extends Component {
   render() {
     if (this.state.instituicoes) {
       return (
-        <div className="some-class">
+        <Drawer open={this.props.state}>
           <AppBar position="static">
             <Tabs value={this.state.value} onChange={this.handleChange}>
-              <Tab label="ESPAÇOS" {...this.a11yProps(0)} />
-              <Tab label="ROTEIROS" {...this.a11yProps(1)} />
+              <Tab label="ESPAÇOS" {...this.a11yProps(0)} style={{width:'50%'}}/>
+              <Tab label="ROTEIROS" {...this.a11yProps(1)} style={{width:'50%'}}/>
             </Tabs>
           </AppBar>
           <TabPanel value={this.state.value} index={0}>
@@ -68,7 +68,12 @@ class SidebarView extends Component {
           <TabPanel value={this.state.value} index={1}>
             ROTEIROS AINDA NAO IMPLEMENTADO
           </TabPanel>
-        </div>
+          <Button onClick={this.props.open}>
+              <Typography>
+                Mapa
+              </Typography>
+          </Button>
+        </Drawer>
       );
     } else {
       return <div>Carregando info...</div>;
