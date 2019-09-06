@@ -27,6 +27,11 @@ export class TabPanel extends Component {
   modal = () => {
     return (
       <Modal
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'bottom'
+        }}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         open={this.state.modalOpen}

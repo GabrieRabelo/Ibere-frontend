@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
+import ContatoInstituicaoComponent from '../components/contatoInstituicao/ContatoInstituicaoComponent';
 
 type Props = {
   titulo: '',
@@ -52,8 +53,7 @@ class DetalheInstituicaoContainer extends Component<Props> {
                 <DescricaoInstituicaoComponent />
               </Grid>
               <Grid item xs={12}>
-                <p>E-mail:</p>
-                <p>Site:</p>
+                <ContatoInstituicaoComponent />
               </Grid>
             </Grid>
             <Grid item xs={12}>
