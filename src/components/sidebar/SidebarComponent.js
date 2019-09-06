@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
-import { List, AppBar, Tabs, Tab, Drawer, Button, Typography } from '@material-ui/core';
+import {
+  List,
+  AppBar,
+  Tabs,
+  Tab,
+  Drawer,
+  Button,
+  Typography
+} from '@material-ui/core';
 
 import Instituicao from '../instituicao';
 import TabPanel from '../tabPanel/TabPanelComponent';
+import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent'
+
 
 class SidebarView extends Component {
   constructor(props) {
@@ -11,7 +21,8 @@ class SidebarView extends Component {
     this.state = {
       instituicoes: [],
       value: 0,
-      modalOpen: false
+      modalOpen: false,
+      sidebarOpen: true
     };
 
     this.getInstituicoes();
@@ -42,38 +53,54 @@ class SidebarView extends Component {
     this.setState({ value: newValue });
   };
 
+  toggleSidebar = () => {
+    this.setState({
+      sidebarOpen: !this.state.sidebarOpen
+    })
+  }
+
   render() {
     if (this.state.instituicoes) {
       return (
-        <Drawer open={this.props.state}>
-          <AppBar position="static">
-            <Tabs value={this.state.value} onChange={this.handleChange}>
-              <Tab label="ESPAÇOS" {...this.a11yProps(0)} style={{width:'50%'}}/>
-              <Tab label="ROTEIROS" {...this.a11yProps(1)} style={{width:'50%'}}/>
-            </Tabs>
-          </AppBar>
-          <TabPanel value={this.state.value} index={0}>
-            <List component="nav" aria-label="main mailbox folders">
-              {this.state.instituicoes.map(instituicao => (
-                <Instituicao
-                  instituicao={instituicao}
-                  key={instituicao.id}
-                  handleOpen={() => {
-                    this.handleOpen();
-                  }}
-                />
-              ))}
-            </List>
-          </TabPanel>
-          <TabPanel value={this.state.value} index={1}>
-            ROTEIROS AINDA NAO IMPLEMENTADO
-          </TabPanel>
-          <Button onClick={this.props.open}>
-              <Typography>
-                Mapa
-              </Typography>
-          </Button>
-        </Drawer>
+          <div>
+              <SidebarHeader open={this.toggleSidebar}/>
+              <Drawer style={{width: '100%'}} open={this.state.sidebarOpen}>
+                <AppBar position="static" color='default'>
+                  <Tabs value={this.state.value} onChange={this.handleChange} >
+                    <Tab
+                      label="ESPAÇOS"
+                      {...this.a11yProps(0)}
+                      style={{ width: '50%' }}
+                    />
+                    <Tab
+                      label="ROTEIROS"
+                      {...this.a11yProps(1)}
+                      style={{ width: '50%' }}
+                    />
+                  </Tabs>
+                </AppBar>
+                <TabPanel value={this.state.value} index={0} >
+                  <List component="nav" aria-label="main mailbox folders" >
+                    {this.state.instituicoes.map(instituicao => (
+                      <Instituicao
+                        instituicao={instituicao}
+                        key={instituicao.id}
+                        handleOpen={() => {
+                          this.handleOpen();
+                        }}
+                      />
+                    ))}
+                  </List>
+                </TabPanel>
+                <TabPanel value={this.state.value} index={1} >
+                    ROTEIROS AINDA NAO IMPLEMENTADO
+                </TabPanel>
+                <Button onClick={this.toggleSidebar}>
+                  <Typography>Mapa</Typography>
+                </Button>
+            </Drawer>        
+          </div>
+          
       );
     } else {
       return <div>Carregando info...</div>;

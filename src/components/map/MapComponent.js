@@ -8,22 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 import SidebarView from '../../components/sidebar/SidebarComponent';
-import { thisExpression } from '@babel/types';
 
 class MapView extends Component {
-
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = {
-      sidebarOpen: true
-    }
-  }
-
-  toggleView = () => {
-    this.setState({
-      sidebarOpen: !this.state.sidebarOpen
-    })
   }
 
   render() {
@@ -49,10 +38,8 @@ class MapView extends Component {
             </CardContent>
           </CardActionArea>
         </Card>
-        <SidebarView open={this.toggleView} state={this.state.sidebarOpen} />
-        <button onClick={this.toggleView}>open bar</button>
+        <SidebarView />
       </Grid>
-
     );
   }
 }
