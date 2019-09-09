@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
+import ContatoInstituicaoComponent from '../components/contatoInstituicao/ContatoInstituicaoComponent';
 
 type Props = {
   titulo: '',
@@ -18,14 +19,14 @@ class DetalheInstituicaoContainer extends Component<Props> {
 
   render() {
     return (
-      <Grid id justify="center" container spacing={12}>
+      <Grid id justify="center" container spacing={10}>
         <Grid item xs={12}>
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             <Grid item xs={12}>
               <div>
-                <Grid container spacing={8}>
-                  <Grid item xs={8}>
-                    <h1>{this.props.titulo}</h1>
+                <Grid container spacing={1}>
+                  <Grid item xs={9}>
+                    <h1 style={{ fontSize: '24px' }}>{this.props.titulo}</h1>
                     <div style={{ color: 'grey' }}>{this.props.endereco}</div>
                     <div style={{ color: 'green' }}>Aberto</div>
                   </Grid>
@@ -35,7 +36,7 @@ class DetalheInstituicaoContainer extends Component<Props> {
                     justify="center"
                     alignItems="center"
                     item
-                    xs={4}
+                    xs={3}
                   >
                     <button style={style}>Rotas</button>
                   </Grid>
@@ -43,7 +44,6 @@ class DetalheInstituicaoContainer extends Component<Props> {
                 <hr />
               </div>
             </Grid>
-            {/* A completar abaixo */}
             <Grid item xs={5}>
               <TabelaHorarioComponent />
             </Grid>
@@ -53,12 +53,11 @@ class DetalheInstituicaoContainer extends Component<Props> {
                 <DescricaoInstituicaoComponent />
               </Grid>
               <Grid item xs={12}>
-                <p>E-mail:</p>
-                <p>Site:</p>
+                <ContatoInstituicaoComponent />
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              vet items
+              Carrossel ficará aqui
             </Grid>
           </Grid>
         </Grid>
@@ -70,6 +69,6 @@ class DetalheInstituicaoContainer extends Component<Props> {
 export default DetalheInstituicaoContainer;
 
 const style = {
-  borderRadius: '5px',
+  borderRadius: '50%',
   outline: '0'
 };

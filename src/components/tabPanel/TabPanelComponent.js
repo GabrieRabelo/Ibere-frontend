@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Typography, Box, Modal } from '@material-ui/core';
+import { Typography, Box, Modal, Paper } from '@material-ui/core';
 
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
 
@@ -27,28 +27,22 @@ export class TabPanel extends Component {
   modal = () => {
     return (
       <Modal
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'bottom'
+        }}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         open={this.state.modalOpen}
         onClose={this.handleClose}
       >
-        <div
-          style={{
-            position: 'absolute',
-            width: 600,
-            backgroundColor: 'silver',
-            border: '2px solid black',
-            boxShadow: 5,
-            padding: 50,
-            top: 100,
-            left: 300
-          }}
-        >
+        <Paper>
           <DetalheInstituicaoContainer
             titulo={'Fundação Ibere Camargo'}
             endereco={'Avenida Padre Cacique, 1720'}
           />
-        </div>
+        </Paper>
       </Modal>
     );
   };
