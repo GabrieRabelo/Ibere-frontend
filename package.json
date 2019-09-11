@@ -4,12 +4,13 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.3.3",
+    "@material-ui/icons": "^4.4.1",
+    "lodash": "latest",
     "material-ui-carousel": "^1.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-items-carousel": "^2.3.7",
-    "react-scripts": "3.1.1",
-    "lodash": "latest"
+    "react-scripts": "3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
