@@ -1,0 +1,18 @@
+.instituicao-nome {
+    display: block;
+}
+
+.instituicao-aberta {
+    color: green;
+    display: block;
+}
+
+.instituicao-fechada {
+    color: red;
+    display: block;
+}
+
+.distancia {
+    color: gray;
+    display: block;
+}
