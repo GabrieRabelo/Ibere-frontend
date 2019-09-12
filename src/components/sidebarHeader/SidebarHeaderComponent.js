@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
 
-import { IconButton, Box, Typography, AppBar } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu'
+import { Box, Typography } from '@material-ui/core';
+
+import logo from '../../assets/images/logo_fundacao_ibere_camargo.png';
+import '../sidebarHeader/SidebarHeader.css';
 
 class SidebarHeader extends Component {
-    render() {
-        return (
-            <AppBar color='default'>
-                <Box display='flex' style={{margin:'10px'}}>
-                    <IconButton onClick={this.props.open}>
-                        <MenuIcon/>
-                    </IconButton>
-                    <Box style={{paddingLeft:'16px'}}>
-                        <Typography variant='h6' style={{marginBottom:'-5px'}}>
-                            Mapas Culturais
-                        </Typography>
-                        <Typography color='textSecondary' variant='subtitle1'>
-                            Fundação Iberê Camargo
-                        </Typography>
-                    </Box>
-                </Box>
-            </AppBar>
-        );
-    }
+  render() {
+    return (
+      <Box p={2} display="flex">
+        <Box>
+          <Typography
+            component="div"
+            id={'simple-tabpanel'}
+            aria-labelledby={'simple-tab'}
+            variant="h6"
+          >
+            Mapas Culturais
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary">
+            Fundação Iberê Camargo
+          </Typography>
+        </Box>
+        <Box className="sidebar-header-logo">
+          <img width="50px" src={logo} alt="logo" />
+        </Box>
+      </Box>
+    );
+  }
 }
 
-export default SidebarHeader    
+export default SidebarHeader;

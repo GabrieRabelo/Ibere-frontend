@@ -11,7 +11,6 @@ class Home extends Component {
           <Map />
         </Grid>
       </Grid>
-      
     );
   }
 }
