@@ -10,11 +10,6 @@ import Grid from '@material-ui/core/Grid';
 import SidebarView from '../../components/sidebar/SidebarComponent';
 
 class MapView extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   render() {
     return (
       <Grid>

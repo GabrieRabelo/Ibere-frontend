@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 
-import { IconButton, Box, Typography, Divider, AppBar } from '@material-ui/core'
+import { IconButton, Box, Typography, AppBar } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 
 class SidebarHeader extends Component {
-
-    constructor(props) {
-        super(props)
-
-    }
-
     render() {
         return (
             <AppBar color='default'>

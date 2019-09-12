@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { ListItem, ListItemText, Typography } from '@material-ui/core';
 
 export class Instituicao extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { instituicao } = this.props;
 

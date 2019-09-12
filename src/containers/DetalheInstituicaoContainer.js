@@ -19,7 +19,11 @@ class DetalheInstituicaoContainer extends Component<Props> {
 
   render() {
     return (
+<<<<<<< HEAD
       <Grid id justify="center" container spacing={10}>
+=======
+      <Grid justify="center" container spacing={6}>
+>>>>>>> 8/@joao.vieira: Remove construtores e imports desnecessário (estavam gerando warnings)
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
