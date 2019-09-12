@@ -8,8 +8,8 @@ class SidebarHeader extends Component {
         return (
             <AppBar color='default'>
                 <Box display='flex' style={{margin:'10px'}}>
-                    <IconButton>
-                        <MenuIcon onClick={this.props.open}/>
+                    <IconButton onClick={this.props.open}>
+                        <MenuIcon/>
                     </IconButton>
                     <Box style={{paddingLeft:'16px'}}>
                         <Typography variant='h6' style={{marginBottom:'-5px'}}>
