@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
-import ContatoInstituicaoComponent from '../components/contatoInstituicao/ContatoInstituicaoComponent';
 
 class DetalheInstituicaoContainer extends Component {
   render() {
