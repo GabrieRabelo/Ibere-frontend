@@ -15,7 +15,7 @@ import TabPanel from '../tabPanel/TabPanelComponent';
 import MapHeader from '../mapHeader/mapHeaderComponent';
 import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent';
 
-import "./Sidebar.css"
+import './Sidebar.css';
 
 class SidebarView extends Component {
   constructor(props) {

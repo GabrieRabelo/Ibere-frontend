@@ -37,12 +37,22 @@ export class TabPanel extends Component {
         open={this.state.modalOpen}
         onClose={this.handleClose}
       >
-        <Paper>
+        <div
+          style={{
+            width: '80%',
+            backgroundColor: 'silver',
+            border: '2px solid black',
+            boxShadow: 5,
+            padding: 10,
+            marginTop: 10,
+            marginLeft: 20
+          }}
+        >
           <DetalheInstituicaoContainer
             titulo={'Fundação Ibere Camargo'}
             endereco={'Avenida Padre Cacique, 1720'}
           />
-        </Paper>
+        </div>
       </Modal>
     );
   };
