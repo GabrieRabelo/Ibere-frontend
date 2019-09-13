@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Typography, Box, Modal, Paper } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 
-import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
-import './TabPanel.css';
 export class TabPanel extends Component {
   constructor(props) {
     super(props);
@@ -16,31 +14,6 @@ export class TabPanel extends Component {
     };
   }
 
-  handleClose = () => {
-    this.setState({ modalOpen: false });
-  };
-
-  handleOpen = () => {
-    this.setState({ modalOpen: true });
-  };
-
-  modal = () => {
-    return (
-      <Modal
-        open={this.state.modalOpen}
-        onClose={this.handleClose}
-        className="modal-instituicao"
-      >
-        <div className="conteudo-modal-instituicao">
-          <DetalheInstituicaoContainer
-            titulo={'Fundação Ibere Camargo'}
-            endereco={'Avenida Padre Cacique, 1720'}
-          />
-        </div>
-      </Modal>
-    );
-  };
-
   render() {
     const { value, index, children } = this.props;
     return (
@@ -51,10 +24,7 @@ export class TabPanel extends Component {
         id={`simple-tabpanel-${index}`}
         aria-labelledby={`simple-tab-${index}`}
       >
-        {this.modal()}
-        <Box onClick={this.handleOpen} p={3}>
-          {children}
-        </Box>
+        <Box p={3}>{children}</Box>
       </Typography>
     );
   }

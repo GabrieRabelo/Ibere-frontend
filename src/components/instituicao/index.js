@@ -1,15 +1,59 @@
 import React, { Component } from 'react';
-import { ListItem, ListItemText, Typography, Divider } from '@material-ui/core';
+import {
+  ListItem,
+  ListItemText,
+  Typography,
+  Divider,
+  Modal
+} from '@material-ui/core';
+
+import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
 
 import './Instituicao.css';
 
 export class Instituicao extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      modalOpen: false
+    };
+  }
+
+  handleClose = () => {
+    this.setState({ modalOpen: false });
+  };
+
+  handleOpen = () => {
+    this.setState({ modalOpen: true });
+  };
+
+  modal = instituicao => {
+    return (
+      <Modal
+        open={this.state.modalOpen}
+        onClose={this.handleClose}
+        className="modal-instituicao"
+      >
+        <div className="conteudo-modal-instituicao">
+          <DetalheInstituicaoContainer instituicao={instituicao} />
+        </div>
+      </Modal>
+    );
+  };
+
   render() {
     const { instituicao } = this.props;
 
     return (
       <React.Fragment>
-        <ListItem button alignItems="flex-start" key={instituicao.id}>
+        {this.modal(instituicao)}
+        <ListItem
+          onClick={this.handleOpen}
+          button
+          alignItems="flex-start"
+          key={instituicao.id}
+        >
           <ListItemText
             primary={
               <Typography

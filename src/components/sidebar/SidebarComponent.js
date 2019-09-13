@@ -89,13 +89,7 @@ class SidebarView extends Component {
             <TabPanel value={this.state.value} index={0}>
               <List component="nav" aria-label="main mailbox folders">
                 {this.state.instituicoes.map(instituicao => (
-                  <Instituicao
-                    instituicao={instituicao}
-                    key={instituicao.id}
-                    handleOpen={() => {
-                      this.handleOpen();
-                    }}
-                  />
+                  <Instituicao instituicao={instituicao} key={instituicao.id} />
                 ))}
               </List>
             </TabPanel>
