@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Typography, Box, Modal, Paper } from '@material-ui/core';
 
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
-
+import './TabPanel.css';
 export class TabPanel extends Component {
   constructor(props) {
     super(props);
@@ -27,27 +27,11 @@ export class TabPanel extends Component {
   modal = () => {
     return (
       <Modal
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'bottom'
-        }}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
         open={this.state.modalOpen}
         onClose={this.handleClose}
+        className="modal-instituicao"
       >
-        <div
-          style={{
-            width: '80%',
-            backgroundColor: 'silver',
-            border: '2px solid black',
-            boxShadow: 5,
-            padding: 10,
-            marginTop: 10,
-            marginLeft: 20
-          }}
-        >
+        <div className="conteudo-modal-instituicao">
           <DetalheInstituicaoContainer
             titulo={'Fundação Ibere Camargo'}
             endereco={'Avenida Padre Cacique, 1720'}

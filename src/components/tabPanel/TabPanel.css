@@ -1,0 +1,13 @@
+.modal-instituicao {
+    margin-top: 50%;
+    margin-left: 5%;
+    width: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.conteudo-modal-instituicao {
+    background-color: silver;
+    border: 2px solid black;
+    padding: 10px;
+}
