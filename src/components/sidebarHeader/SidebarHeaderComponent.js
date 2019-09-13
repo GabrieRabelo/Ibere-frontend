@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Box, Typography } from '@material-ui/core';
 
 import logo from '../../assets/images/logo_fundacao_ibere_camargo.png';
-import '../sidebarHeader/SidebarHeader.css';
+import './SidebarHeader.css';
 
 class SidebarHeader extends Component {
   render() {

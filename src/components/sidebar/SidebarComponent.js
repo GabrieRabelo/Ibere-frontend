@@ -15,6 +15,8 @@ import TabPanel from '../tabPanel/TabPanelComponent';
 import MapHeader from '../mapHeader/mapHeaderComponent';
 import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent';
 
+import "./Sidebar.css"
+
 class SidebarView extends Component {
   constructor(props) {
     super(props);
@@ -66,7 +68,7 @@ class SidebarView extends Component {
         <div>
           <MapHeader open={this.toggleSidebar} />
 
-          <Drawer style={{ width: '100%' }} open={this.state.sidebarOpen}>
+          <Drawer open={this.state.sidebarOpen}>
             <AppBar position="static" color="default">
               <SidebarHeader />
               <Divider />
