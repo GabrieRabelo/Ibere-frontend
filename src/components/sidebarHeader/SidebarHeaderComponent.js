@@ -23,7 +23,7 @@ class SidebarHeader extends Component {
           </Typography>
         </Box>
         <Box className="sidebar-header-logo">
-          <img width="50px" src={logo} alt="logo" />
+          <img width="20%" src={logo} alt="logo" />
         </Box>
       </Box>
     );
