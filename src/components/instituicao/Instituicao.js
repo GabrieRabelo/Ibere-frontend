@@ -4,7 +4,7 @@ import {
   ListItemText,
   Typography,
   Divider,
-  Modal,
+  Modal
 } from '@material-ui/core';
 
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
