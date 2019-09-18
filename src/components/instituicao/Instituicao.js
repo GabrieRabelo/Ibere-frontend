@@ -5,14 +5,13 @@ import {
   Typography,
   Divider,
   Modal,
-  Paper
 } from '@material-ui/core';
 
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
 
 import './Instituicao.css';
 
-export class Instituicao extends Component {
+export class Instituicao2 extends Component {
   constructor(props) {
     super(props);
 
@@ -31,14 +30,8 @@ export class Instituicao extends Component {
 
   modal = instituicao => {
     return (
-      <Modal
-        open={this.state.modalOpen}
-        onClose={this.handleClose}
-        className="modal-instituicao"
-      >
-        <Paper className="conteudo-modal-instituicao">
-          <DetalheInstituicaoContainer instituicao={instituicao} />
-        </Paper>
+      <Modal open={this.state.modalOpen} onClose={this.handleClose}>
+        <DetalheInstituicaoContainer instituicao={instituicao} />
       </Modal>
     );
   };
@@ -92,4 +85,4 @@ export class Instituicao extends Component {
   }
 }
 
-export default Instituicao;
+export default Instituicao2;

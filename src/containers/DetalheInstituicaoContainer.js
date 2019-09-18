@@ -6,13 +6,13 @@ import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/De
 class DetalheInstituicaoContainer extends Component {
   render() {
     return (
-      <Grid justify="center" container spacing={6}>
+      <Grid className="container" justify="center" container spacing={6}>
         <Grid item xs={12}>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid item xs={10}>
               <div>
-                <Grid container spacing={8}>
-                  <Grid item xs={8}>
+                <Grid container>
+                  <Grid item xs={7}>
                     <h1>{this.props.instituicao.nome}</h1>
                     <div style={{ color: 'grey' }}>
                       {this.props.instituicao.endereco}
@@ -29,7 +29,7 @@ class DetalheInstituicaoContainer extends Component {
                     justify="center"
                     alignItems="center"
                     item
-                    xs={3}
+                    xs={2}
                   >
                     <button style={style}>Rotas</button>
                   </Grid>

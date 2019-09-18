@@ -18,15 +18,16 @@
 }
 
 .modal-instituicao {
+    position: absolute;
+    border-radius: 10px 10px 0 0;
     margin-top: 30vh;
-    margin-left: 5%;
-    width: 90%;
+    bottom: 0;
+    width: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .conteudo-modal-instituicao {
-    background-color: silver;
-    border: 2px solid black;
-    padding: 10px;
+    position: absolute;
+    bottom: 0;
 }
