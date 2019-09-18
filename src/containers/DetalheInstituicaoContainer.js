@@ -1,53 +1,67 @@
 import React, { Component } from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Divider, Typography, Fab } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
+
+import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
+
+import './DetalheInstituicao.css';
 
 class DetalheInstituicaoContainer extends Component {
   render() {
     return (
-      <Grid className="container" justify="center" container spacing={6}>
+      <Grid className="container" justify="center" container>
         <Grid item xs={12}>
-          <Grid container spacing={2}>
-            <Grid item xs={10}>
-              <div>
-                <Grid container>
-                  <Grid item xs={7}>
-                    <h1>{this.props.instituicao.nome}</h1>
-                    <div style={{ color: 'grey' }}>
-                      {this.props.instituicao.endereco}
-                    </div>
-                    {this.props.instituicao.aberto ? (
-                      <div className="instituicao-aberta">Aberto</div>
-                    ) : (
-                      <div className="instituicao-fechada">Fechado</div>
-                    )}
-                  </Grid>
-                  <Grid
-                    container
-                    direction="row"
-                    justify="center"
-                    alignItems="center"
-                    item
-                    xs={2}
+          <Grid item xs={12}>
+            <Grid className="container1" container>
+              <Grid item xs={10} justify="flex-start">
+                <Typography className="titulo" variant="h5">
+                  {this.props.instituicao.nome}
+                </Typography>
+                <Typography variant="subtitle1">
+                  {this.props.instituicao.endereco}
+                </Typography>
+                {this.props.instituicao.aberto ? (
+                  <Typography
+                    variant="subtitle2"
+                    className="instituicao-aberta"
                   >
-                    <button style={style}>Rotas</button>
-                  </Grid>
-                </Grid>
-                <hr />
-              </div>
+                    Aberto
+                  </Typography>
+                ) : (
+                  <Typography
+                    variant="subtitle2"
+                    className="instituicao-fechada"
+                  >
+                    Fechado
+                  </Typography>
+                )}
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                justify="flex-end"
+                alignItems="center"
+                item
+                xs={2}
+              >
+                <Fab color="inherit" className="btnRotas" size="small">
+                  <SubdirectoryArrowRightIcon />
+                </Fab>
+              </Grid>
             </Grid>
-            <Grid item xs={5}>
-              <TabelaHorarioComponent />
+            <Divider />
+            <Grid item xs={12}>
+              <DescricaoInstituicaoComponent
+                descricao={this.props.instituicao.descricao}
+              />
             </Grid>
 
-            <Grid container spacing={2} item xs={7}>
-              <Grid item xs={12}>
-                <DescricaoInstituicaoComponent
-                  descricao={this.props.instituicao.descricao}
-                />
+            <Grid className="horariosContatoContainer" container spacing={2}>
+              <Grid item xs={6}>
+                <TabelaHorarioComponent />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={6}>
                 <p>E-mail: {this.props.instituicao.email}</p>
                 <p>Site:</p>
                 <p>Telefone: {this.props.instituicao.telefone}</p>
@@ -64,8 +78,3 @@ class DetalheInstituicaoContainer extends Component {
 }
 
 export default DetalheInstituicaoContainer;
-
-const style = {
-  borderRadius: '50%',
-  outline: '0'
-};
