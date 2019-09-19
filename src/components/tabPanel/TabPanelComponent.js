@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Typography, Box, Modal, Paper } from '@material-ui/core';
-
-import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
+import { Typography, Box } from '@material-ui/core';
 
 export class TabPanel extends Component {
   constructor(props) {
@@ -16,37 +14,6 @@ export class TabPanel extends Component {
     };
   }
 
-  handleClose = () => {
-    this.setState({ modalOpen: false });
-  };
-
-  handleOpen = () => {
-    this.setState({ modalOpen: true });
-  };
-
-  modal = () => {
-    return (
-      <Modal
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'bottom'
-        }}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        open={this.state.modalOpen}
-        onClose={this.handleClose}
-      >
-        <Paper>
-          <DetalheInstituicaoContainer
-            titulo={'Fundação Ibere Camargo'}
-            endereco={'Avenida Padre Cacique, 1720'}
-          />
-        </Paper>
-      </Modal>
-    );
-  };
-
   render() {
     const { value, index, children } = this.props;
     return (
@@ -57,10 +24,7 @@ export class TabPanel extends Component {
         id={`simple-tabpanel-${index}`}
         aria-labelledby={`simple-tab-${index}`}
       >
-        {this.modal()}
-        <Box onClick={this.handleOpen} p={3}>
-          {children}
-        </Box>
+        <Box p={3}>{children}</Box>
       </Typography>
     );
   }
