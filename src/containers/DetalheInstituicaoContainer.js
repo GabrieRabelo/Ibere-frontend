@@ -39,7 +39,7 @@ class DetalheInstituicaoContainer extends Component {
               </Grid>
               <Grid
                 container
-                className='btnContainer'
+                className="btnContainer"
                 direction="row"
                 justify="flex-end"
                 item
