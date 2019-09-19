@@ -46,7 +46,7 @@ export class Instituicao extends Component {
   render() {
     const { instituicao } = this.props;
 
-    return (
+    return (  
       <React.Fragment>
         {this.modal(instituicao)}
         <ListItem

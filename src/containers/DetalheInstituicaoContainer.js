@@ -14,7 +14,7 @@ class DetalheInstituicaoContainer extends Component {
         <Grid item xs={12}>
           <Grid item xs={12}>
             <Grid className="container1" container>
-              <Grid item xs={10} justify="flex-start">
+              <Grid item xs={10}>
                 <Typography className="titulo" variant="h5">
                   {this.props.instituicao.nome}
                 </Typography>
@@ -39,9 +39,9 @@ class DetalheInstituicaoContainer extends Component {
               </Grid>
               <Grid
                 container
+                className='btnContainer'
                 direction="row"
                 justify="flex-end"
-                alignItems="center"
                 item
                 xs={2}
               >
@@ -50,7 +50,7 @@ class DetalheInstituicaoContainer extends Component {
                 </Fab>
               </Grid>
             </Grid>
-            <Divider />
+            <Divider className="divider" />
             <Grid item xs={12}>
               <DescricaoInstituicaoComponent
                 descricao={this.props.instituicao.descricao}
