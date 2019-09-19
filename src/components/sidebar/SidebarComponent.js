@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 
 import Instituicao from '../instituicao/Instituicao';
+import Roteiros from '../roteiros/RoteirosComponent';
 import TabPanel from '../tabPanel/TabPanelComponent';
 import MapHeader from '../mapHeader/mapHeaderComponent';
 import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent';
@@ -25,15 +26,33 @@ class SidebarView extends Component {
 
     this.state = {
       instituicoes: [],
-      value: 0,
+      roteiros: [],
+      value: 1,
       modalOpen: false,
       sidebarOpen: true
     };
+
+    this.getRoteiros();
   }
+
   async componentDidMount() {
     const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
     this.setState({ instituicoes: listaInstituicoes });
   }
+
+  getRoteiros = () => {
+    fetch(
+      'https://my-json-server.typicode.com/joaocv3/sample_ibere_endpoint_v1/roteiros'
+    )
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({
+          roteiros: data
+        });
+      });
+  };
 
   a11yProps = index => {
     return {
@@ -82,13 +101,19 @@ class SidebarView extends Component {
                   <Instituicao instituicao={instituicao} key={instituicao.id} />
                 ))}
               </List>
+              <Button onClick={this.toggleSidebar}>
+                <Typography>Mapa</Typography>
+              </Button>
             </TabPanel>
             <TabPanel value={this.state.value} index={1}>
-              ROTEIROS AINDA NAO IMPLEMENTADO
+              <List component="nav" aria-label="main mailbox folders">
+                <Roteiros roteiros={this.state.roteiros} />
+              </List>
+
+              <Button onClick={this.toggleSidebar}>
+                <Typography>Mapa</Typography>
+              </Button>
             </TabPanel>
-            <Button onClick={this.toggleSidebar}>
-              <Typography>Mapa</Typography>
-            </Button>
           </Drawer>
         </div>
       );
