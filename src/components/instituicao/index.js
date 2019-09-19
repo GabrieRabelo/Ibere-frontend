@@ -79,7 +79,7 @@ export class Instituicao extends Component {
                   </Typography>
                 )}
                 <Typography component={'span'} className="distancia">
-                  1KM
+                  {instituicao.distancia}
                 </Typography>
               </React.Fragment>
             }

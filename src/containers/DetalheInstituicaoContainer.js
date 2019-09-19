@@ -38,7 +38,9 @@ class DetalheInstituicaoContainer extends Component {
               </div>
             </Grid>
             <Grid item xs={5}>
-              <TabelaHorarioComponent />
+              <TabelaHorarioComponent
+                horario={this.props.insituicao.horario_visitacao}
+              />
             </Grid>
 
             <Grid container spacing={2} item xs={7}>

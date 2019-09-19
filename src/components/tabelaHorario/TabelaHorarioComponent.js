@@ -14,7 +14,7 @@ const TabelaHorarioComponent = () => {
           <p>SEG</p>
         </Grid>
         <Grid item xs={8}>
-          <p>00:00 - 00:00</p>
+          <p></p>
         </Grid>
       </Grid>
       <Grid container className="dia">
@@ -22,7 +22,7 @@ const TabelaHorarioComponent = () => {
           <p>TER</p>
         </Grid>
         <Grid item xs={8}>
-          <p>00:00 - 00:00</p>
+          <p></p>
         </Grid>
       </Grid>
       <Grid container className="dia">
@@ -30,7 +30,7 @@ const TabelaHorarioComponent = () => {
           <p>QUA</p>
         </Grid>
         <Grid item xs={8}>
-          <p>00:00 - 00:00</p>
+          <p></p>
         </Grid>
       </Grid>
       <Grid container className="dia">
@@ -38,7 +38,7 @@ const TabelaHorarioComponent = () => {
           <p>QUI</p>
         </Grid>
         <Grid item xs={8}>
-          <p>00:00 - 00:00</p>
+          <p></p>
         </Grid>
       </Grid>
       <Grid container className="dia">
@@ -46,7 +46,7 @@ const TabelaHorarioComponent = () => {
           <p>SEX</p>
         </Grid>
         <Grid item xs={8}>
-          <p>00:00 - 00:00</p>
+          <p></p>
         </Grid>
       </Grid>
       <Grid container className="dia">
@@ -54,7 +54,7 @@ const TabelaHorarioComponent = () => {
           <p>SAB</p>
         </Grid>
         <Grid item xs={8}>
-          <p>00:00 - 00:00</p>
+          <p></p>
         </Grid>
       </Grid>
       <Grid container className="dia">
@@ -62,7 +62,7 @@ const TabelaHorarioComponent = () => {
           <p>DOM</p>
         </Grid>
         <Grid item xs={8}>
-          <p>00:00 - 00:00</p>
+          <p></p>
         </Grid>
       </Grid>
     </Paper>
