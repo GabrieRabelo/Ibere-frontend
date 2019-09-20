@@ -61,8 +61,8 @@ class DetalheInstituicaoContainer extends Component {
               <Grid item xs={5}>
                 <TabelaHorarioComponent />
               </Grid>
-              <Grid item xs={7} className='contatoContainer'>
-                <Typography variant="body2" id='email'>
+              <Grid item xs={7} className="contatoContainer">
+                <Typography variant="body2" id="email">
                   {this.props.instituicao.email}
                 </Typography>
                 <Typography variant="body2">
