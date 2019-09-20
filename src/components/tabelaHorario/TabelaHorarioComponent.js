@@ -6,7 +6,7 @@ const TabelaHorarioComponent = () => {
   return (
     <Grid className="containerTotal" container>
       <Grid className="tituloContainer">
-        <Typography classes={'horario'} variant="subtitle1" className="horario">
+        <Typography variant="subtitle1" className="horario">
           Horários
         </Typography>
       </Grid>
