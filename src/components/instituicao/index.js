@@ -92,6 +92,4 @@ export class Instituicao extends Component {
   }
 }
 
-const element = document.getElementsByClassName('modal-instituicao')[0]
-
 export default Instituicao;
