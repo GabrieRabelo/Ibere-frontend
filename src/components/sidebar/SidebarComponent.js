@@ -30,7 +30,6 @@ class SidebarView extends Component {
       sidebarOpen: true
     };
   }
-
   async componentDidMount() {
     const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
     this.setState({ instituicoes: listaInstituicoes });
@@ -80,7 +79,7 @@ class SidebarView extends Component {
             <TabPanel value={this.state.value} index={0}>
               <List component="nav" aria-label="main mailbox folders">
                 {this.state.instituicoes.map(instituicao => (
-                  <Instituicao instituicao={instituicao} key={instituicao.id} />
+                  <Instituicao instituicao={instituicao} key={instituicao.id}/>
                 ))}
               </List>
             </TabPanel>

@@ -12,12 +12,7 @@
 }
 
 .divider {
-    margin-bottom: 5px;
-}
-
-.descricaoContainer {
-    background-color: red;
-    position: relative;
+    margin: 6px 0;
 }
 
 .horariosContatoContainer {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Divider, Typography, Fab } from '@material-ui/core';
+import { Grid, Typography, Fab } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
 
@@ -50,7 +50,7 @@ class DetalheInstituicaoContainer extends Component {
                 </Fab>
               </Grid>
             </Grid>
-            <Divider className="divider" />
+            <hr className="divider" />
             <Grid item xs={12}>
               <DescricaoInstituicaoComponent
                 descricao={this.props.instituicao.descricao}
@@ -58,10 +58,10 @@ class DetalheInstituicaoContainer extends Component {
             </Grid>
 
             <Grid className="horariosContatoContainer" container spacing={2}>
-              <Grid item xs={6}>
+              <Grid item xs={5}>
                 <TabelaHorarioComponent />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={7}>
                 <p>E-mail: {this.props.instituicao.email}</p>
                 <p>Site:</p>
                 <p>Telefone: {this.props.instituicao.telefone}</p>

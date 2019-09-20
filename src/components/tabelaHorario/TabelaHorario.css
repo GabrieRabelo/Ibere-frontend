@@ -1,11 +1,14 @@
+
 .Horario{
-    display: flex;
-    justify-content: center;
-    height: 1px;
+    justify-content: flex-start;
+}
+
+.dias {
+    padding-top: 10px;
 }
 
 .dia{
+    display: flex;
     font-size: 12px;
     height: 35px;
-    padding: 5%;
 }
