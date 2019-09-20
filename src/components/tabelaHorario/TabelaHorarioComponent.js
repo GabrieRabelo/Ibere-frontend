@@ -4,9 +4,9 @@ import './TabelaHorario.css';
 
 const TabelaHorarioComponent = () => {
   return (
-    <Grid container>
-      <Grid className="horarioContainer">
-        <Typography variant="subtitle1" className="Horario">
+    <Grid className="containerTotal" container>
+      <Grid className="tituloContainer">
+        <Typography classes={'horario'} variant="subtitle1" className="horario">
           Horários
         </Typography>
       </Grid>
@@ -14,58 +14,58 @@ const TabelaHorarioComponent = () => {
       <Grid className="dias">
         <Grid container className="dia">
           <Grid item xs={4}>
-            <p>SEG</p>
+            <Typography variant="body2">Seg</Typography>
           </Grid>
           <Grid item xs={8}>
-            <p>00:00 - 00:00</p>
+            <Typography variant="body2">00:00 - 00:00</Typography>
           </Grid>
         </Grid>
         <Grid container className="dia">
           <Grid item xs={4}>
-            <p>TER</p>
+            <Typography variant="body2">Ter</Typography>
           </Grid>
           <Grid item xs={8}>
-            <p>00:00 - 00:00</p>
+            <Typography variant="body2">00:00 - 00:00</Typography>
           </Grid>
         </Grid>
         <Grid container className="dia">
           <Grid item xs={4}>
-            <p>QUA</p>
+            <Typography variant="body2">Qua</Typography>
           </Grid>
           <Grid item xs={8}>
-            <p>00:00 - 00:00</p>
+            <Typography variant="body2">00:00 - 00:00</Typography>
           </Grid>
         </Grid>
         <Grid container className="dia">
           <Grid item xs={4}>
-            <p>QUI</p>
+            <Typography variant="body2">Qui</Typography>
           </Grid>
           <Grid item xs={8}>
-            <p>00:00 - 00:00</p>
+            <Typography variant="body2">00:00 - 00:00</Typography>
           </Grid>
         </Grid>
         <Grid container className="dia">
           <Grid item xs={4}>
-            <p>SEX</p>
+            <Typography variant="body2">Sex</Typography>
           </Grid>
           <Grid item xs={8}>
-            <p>00:00 - 00:00</p>
+            <Typography variant="body2">00:00 - 00:00</Typography>
           </Grid>
         </Grid>
         <Grid container className="dia">
           <Grid item xs={4}>
-            <p>SAB</p>
+            <Typography variant="body2">Sab</Typography>
           </Grid>
           <Grid item xs={8}>
-            <p>00:00 - 00:00</p>
+            <Typography variant="body2">00:00 - 00:00</Typography>
           </Grid>
         </Grid>
         <Grid container className="dia">
           <Grid item xs={4}>
-            <p>DOM</p>
+            <Typography variant="body2">Dom</Typography>
           </Grid>
           <Grid item xs={8}>
-            <p>00:00 - 00:00</p>
+            <Typography variant="body2">00:00 - 00:00</Typography>
           </Grid>
         </Grid>
       </Grid>

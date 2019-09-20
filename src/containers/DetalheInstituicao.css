@@ -19,8 +19,12 @@
     display: flex;
 }
 
-.descricao {
+.contatoContainer {
+    color: gray;
+}
 
+#email {
+    padding-top: 8px;
 }
 
 #titulo {
