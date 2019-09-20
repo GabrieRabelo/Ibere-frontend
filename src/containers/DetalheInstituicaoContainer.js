@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Typography, Fab } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
+import CarouselComponent from '../components/carrosselModal/carrosselComponent';
 
 import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
 
@@ -74,7 +75,7 @@ class DetalheInstituicaoContainer extends Component {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              Carrossel ficará aqui
+              <CarouselComponent />
             </Grid>
           </Grid>
         </Grid>
