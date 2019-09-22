@@ -5,7 +5,6 @@ import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 5
   },
@@ -19,17 +18,55 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
+    items: 2
   }
 };
 
 const CarouselComponent = () => {
   return (
-    <Carousel responsive={responsive}>
-      <div className="slide">Item 1</div>
-      <div className="slide">Item 2</div>
-      <div className="slide">Item 3</div>
-      <div className="slide">Item 4</div>
+    <Carousel
+      responsive={responsive}
+      draggable={true}
+      arrows={false}
+      focusOnSelect={true}
+      infinite={true}
+      showDots={true}
+    >
+      <div className="slide">
+        <p>1A</p>
+        <p>Imagem</p>
+        <p>Irá</p>
+        <p>Aqui</p>
+        <p>Testando altura</p>
+      </div>
+      <div className="slide">
+        <p>2A</p>
+        <p>Imagem</p>
+        <p>Irá</p>
+        <p>Aqui</p>
+        <p>Testando altura</p>
+      </div>
+      <div className="slide">
+        <p>3A</p>
+        <p>Imagem</p>
+        <p>Irá</p>
+        <p>Aqui</p>
+        <p>Testando altura</p>
+      </div>
+      <div className="slide">
+        <p>4A</p>
+        <p>Imagem</p>
+        <p>Irá</p>
+        <p>Aqui</p>
+        <p>Testando altura</p>
+      </div>
+      <div className="slide">
+        <p>5A</p>
+        <p>Imagem</p>
+        <p>Irá</p>
+        <p>Aqui</p>
+        <p>Testando altura</p>
+      </div>
     </Carousel>
   );
 };
