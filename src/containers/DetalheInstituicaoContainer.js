@@ -58,7 +58,12 @@ class DetalheInstituicaoContainer extends Component {
               />
             </Grid>
 
-            <Grid className="horariosContatoContainer" container justify="center" spacing={2}>
+            <Grid
+              className="horariosContatoContainer"
+              container
+              justify="center"
+              spacing={2}
+            >
               <Grid item xs={5}>
                 <TabelaHorarioComponent />
               </Grid>
