@@ -1,6 +1,7 @@
 .container {
     padding: 20px 20px 10px 20px;
     height: 100%;
+    word-break: break-word;
 }
 
 .container1 {
