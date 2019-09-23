@@ -16,10 +16,12 @@ import MapHeader from '../mapHeader/mapHeaderComponent';
 import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent';
 
 import './Sidebar.css';
+import InstituicaoService from '../../services/InstituicaoService';
 
 class SidebarView extends Component {
   constructor(props) {
     super(props);
+    this.instituicaoService = new InstituicaoService();
 
     this.state = {
       instituicoes: [],
@@ -27,23 +29,12 @@ class SidebarView extends Component {
       modalOpen: false,
       sidebarOpen: true
     };
-
-    this.getInstituicoes();
   }
 
-  getInstituicoes = () => {
-    fetch(
-      'https://my-json-server.typicode.com/joaocv3/sample_endpoint_ibere/instituicoes'
-    )
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.setState({
-          instituicoes: data
-        });
-      });
-  };
+  async componentDidMount() {
+    const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
+    this.setState({ instituicoes: listaInstituicoes });
+  }
 
   a11yProps = index => {
     return {
