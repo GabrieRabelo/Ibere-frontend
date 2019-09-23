@@ -39,7 +39,7 @@ class DetalheInstituicaoContainer extends Component {
             </Grid>
             <Grid item xs={5}>
               <TabelaHorarioComponent
-                horario={this.props.insituicao.horario_visitacao}
+                horario={this.props.instituicao.horario_visitacao}
               />
             </Grid>
 
