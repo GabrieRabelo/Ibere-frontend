@@ -80,7 +80,7 @@ class DetalheInstituicaoContainer extends Component {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              <CarouselComponent />
+              <CarouselComponent instituicao={this.props.instituicao} />
             </Grid>
           </Grid>
         </Grid>

@@ -22,53 +22,25 @@ const responsive = {
   }
 };
 
-const CarouselComponent = () => {
-  return (
-    <Carousel
-      responsive={responsive}
-      draggable={true}
-      arrows={false}
-      focusOnSelect={true}
-      infinite={true}
-      showDots={true}
-    >
-      <div className="slide">
-        <p>1A</p>
-        <p>Imagem</p>
-        <p>Irá</p>
-        <p>Aqui</p>
-        <p>Testando altura</p>
-      </div>
-      <div className="slide">
-        <p>2A</p>
-        <p>Imagem</p>
-        <p>Irá</p>
-        <p>Aqui</p>
-        <p>Testando altura</p>
-      </div>
-      <div className="slide">
-        <p>3A</p>
-        <p>Imagem</p>
-        <p>Irá</p>
-        <p>Aqui</p>
-        <p>Testando altura</p>
-      </div>
-      <div className="slide">
-        <p>4A</p>
-        <p>Imagem</p>
-        <p>Irá</p>
-        <p>Aqui</p>
-        <p>Testando altura</p>
-      </div>
-      <div className="slide">
-        <p>5A</p>
-        <p>Imagem</p>
-        <p>Irá</p>
-        <p>Aqui</p>
-        <p>Testando altura</p>
-      </div>
-    </Carousel>
-  );
-};
+class CarouselComponent extends React.Component {
+  render() {
+    return (
+      <Carousel
+        responsive={responsive}
+        draggable={true}
+        arrows={false}
+        focusOnSelect={true}
+        infinite={true}
+        showDots={true}
+      >
+        {this.props.instituicao.imagens.map(imagem => (
+          <div className="slide" key={imagem}>
+            <img src={imagem} alt="" />
+          </div>
+        ))}
+      </Carousel>
+    );
+  }
+}
 
 export default CarouselComponent;
