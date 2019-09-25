@@ -14,11 +14,27 @@ const responsive = {
     items: 2,
     partialVisibilityGutter: 80 // this is needed to tell the amount of px that should be visible.
   },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
+  mobile1: {
+    breakpoint: { max: 464, min: 415 },
     items: 1,
-    partialVisibilityGutter: 80 // this is needed to tell the amount of px that should be visible.
+    partialVisibilityGutter: 15 // this is needed to tell the amount of px that should be visible.
+  },
+  mobile2: {
+    breakpoint: { max: 414, min: 376 },
+    items: 1,
+    partialVisibilityGutter: 85 // this is needed to tell the amount of px that should be visible.
+  },
+  mobile3: {
+    breakpoint: { max: 300, min: 0 },
+    items: 1,
+   // partialVisibilityGutter: 90 // this is needed to tell the amount of px that should be visible.
+  },
+  mobile4: {
+    breakpoint: { max: 200, min: 0 },
+    items: 1,
+  //  partialVisibilityGutter: 90 // this is needed to tell the amount of px that should be visible.
   }
+
 };
 
 class CarouselComponent extends React.Component {
@@ -36,7 +52,7 @@ class CarouselComponent extends React.Component {
       >
         {this.props.instituicao.imagens.map(imagem => (
           <div className="slide" key={imagem}>
-            <img src={imagem} alt="" />
+            <img className="img" src={imagem} alt="" height="150px" />
           </div>
         ))}
       </Carousel>
