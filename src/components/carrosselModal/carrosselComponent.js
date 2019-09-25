@@ -26,15 +26,14 @@ const responsive = {
   },
   mobile3: {
     breakpoint: { max: 300, min: 0 },
-    items: 1,
-   // partialVisibilityGutter: 90 // this is needed to tell the amount of px that should be visible.
+    items: 1
+    // partialVisibilityGutter: 90 // this is needed to tell the amount of px that should be visible.
   },
   mobile4: {
     breakpoint: { max: 200, min: 0 },
-    items: 1,
-  //  partialVisibilityGutter: 90 // this is needed to tell the amount of px that should be visible.
+    items: 1
+    //  partialVisibilityGutter: 90 // this is needed to tell the amount of px that should be visible.
   }
-
 };
 
 class CarouselComponent extends React.Component {
