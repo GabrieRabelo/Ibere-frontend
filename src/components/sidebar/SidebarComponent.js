@@ -18,11 +18,13 @@ import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent';
 
 import './Sidebar.css';
 import InstituicaoService from '../../services/InstituicaoService';
+import RoteiroService from '../../services/RoteiroService';
 
 class SidebarView extends Component {
   constructor(props) {
     super(props);
     this.instituicaoService = new InstituicaoService();
+    this.roteiroService = new RoteiroService();
 
     this.state = {
       instituicoes: [],
@@ -31,28 +33,13 @@ class SidebarView extends Component {
       modalOpen: false,
       sidebarOpen: true
     };
-
-    this.getRoteiros();
   }
 
   async componentDidMount() {
     const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
-    this.setState({ instituicoes: listaInstituicoes });
+    const listaRoteiros = await this.roteiroService.listaRoteiros();
+    this.setState({ instituicoes: listaInstituicoes, roteiros: listaRoteiros });
   }
-
-  getRoteiros = () => {
-    fetch(
-      'https://my-json-server.typicode.com/joaocv3/sample_ibere_endpoint_v1/roteiros'
-    )
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.setState({
-          roteiros: data
-        });
-      });
-  };
 
   a11yProps = index => {
     return {
