@@ -10,7 +10,7 @@ import {
   Divider
 } from '@material-ui/core';
 
-import Instituicao from '../instituicao';
+import Instituicao from '../instituicao/Instituicao';
 import TabPanel from '../tabPanel/TabPanelComponent';
 import MapHeader from '../mapHeader/mapHeaderComponent';
 import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent';
@@ -30,7 +30,6 @@ class SidebarView extends Component {
       sidebarOpen: true
     };
   }
-
   async componentDidMount() {
     const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
     this.setState({ instituicoes: listaInstituicoes });

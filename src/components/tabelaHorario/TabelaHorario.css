@@ -1,11 +1,22 @@
-.Horario{
+.containerTotal {
+    width: 100%;
+
     display: flex;
-    justify-content: center;
-    height: 1px;
+    flex-direction: column;
+
+    color: #313131;
+}
+
+.horario {
+    font-weight: bold !important;
+}
+
+.dias {
+    padding-top: 6px;
 }
 
 .dia{
+    display: flex;
     font-size: 12px;
-    height: 35px;
-    padding: 5%;
+    height: 25px;
 }

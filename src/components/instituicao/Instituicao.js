@@ -4,7 +4,8 @@ import {
   ListItemText,
   Typography,
   Divider,
-  Modal
+  Modal,
+  Paper
 } from '@material-ui/core';
 
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
@@ -35,9 +36,9 @@ export class Instituicao extends Component {
         onClose={this.handleClose}
         className="modal-instituicao"
       >
-        <div className="conteudo-modal-instituicao">
+        <Paper className="conteudo-modal-instituicao">
           <DetalheInstituicaoContainer instituicao={instituicao} />
-        </div>
+        </Paper>
       </Modal>
     );
   };
