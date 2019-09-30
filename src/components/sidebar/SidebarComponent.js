@@ -6,17 +6,22 @@ import {
   Tab,
   Drawer,
   Button,
-  Typography
+  Typography,
+  Divider
 } from '@material-ui/core';
 
 import Instituicao from '../instituicao';
 import TabPanel from '../tabPanel/TabPanelComponent';
-import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent'
+import MapHeader from '../mapHeader/mapHeaderComponent';
+import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent';
 
+import './Sidebar.css';
+import InstituicaoService from '../../services/InstituicaoService';
 
 class SidebarView extends Component {
   constructor(props) {
     super(props);
+    this.instituicaoService = new InstituicaoService();
 
     this.state = {
       instituicoes: [],
@@ -24,23 +29,12 @@ class SidebarView extends Component {
       modalOpen: false,
       sidebarOpen: true
     };
-
-    this.getInstituicoes();
   }
 
-  getInstituicoes = () => {
-    fetch(
-      'https://my-json-server.typicode.com/joaocv3/sample_endpoint_ibere/instituicoes'
-    )
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.setState({
-          instituicoes: data
-        });
-      });
-  };
+  async componentDidMount() {
+    const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
+    this.setState({ instituicoes: listaInstituicoes });
+  }
 
   a11yProps = index => {
     return {
@@ -56,51 +50,48 @@ class SidebarView extends Component {
   toggleSidebar = () => {
     this.setState({
       sidebarOpen: !this.state.sidebarOpen
-    })
-  }
+    });
+  };
 
   render() {
     if (this.state.instituicoes) {
       return (
-          <div>
-              <SidebarHeader open={this.toggleSidebar}/>
-              <Drawer style={{width: '100%'}} open={this.state.sidebarOpen}>
-                <AppBar position="static" color='default'>
-                  <Tabs value={this.state.value} onChange={this.handleChange} >
-                    <Tab
-                      label="ESPAÇOS"
-                      {...this.a11yProps(0)}
-                      style={{ width: '50%' }}
-                    />
-                    <Tab
-                      label="ROTEIROS"
-                      {...this.a11yProps(1)}
-                      style={{ width: '50%' }}
-                    />
-                  </Tabs>
-                </AppBar>
-                <TabPanel value={this.state.value} index={0} >
-                  <List component="nav" aria-label="main mailbox folders" >
-                    {this.state.instituicoes.map(instituicao => (
-                      <Instituicao
-                        instituicao={instituicao}
-                        key={instituicao.id}
-                        handleOpen={() => {
-                          this.handleOpen();
-                        }}
-                      />
-                    ))}
-                  </List>
-                </TabPanel>
-                <TabPanel value={this.state.value} index={1} >
-                    ROTEIROS AINDA NAO IMPLEMENTADO
-                </TabPanel>
-                <Button onClick={this.toggleSidebar}>
-                  <Typography>Mapa</Typography>
-                </Button>
-            </Drawer>        
-          </div>
-          
+        <div>
+          <MapHeader open={this.toggleSidebar} />
+
+          <Drawer open={this.state.sidebarOpen}>
+            <AppBar position="static" color="default">
+              <SidebarHeader />
+              <Divider />
+
+              <Tabs value={this.state.value} onChange={this.handleChange}>
+                <Tab
+                  label="ESPAÇOS"
+                  {...this.a11yProps(0)}
+                  style={{ width: '50%' }}
+                />
+                <Tab
+                  label="ROTEIROS"
+                  {...this.a11yProps(1)}
+                  style={{ width: '50%' }}
+                />
+              </Tabs>
+            </AppBar>
+            <TabPanel value={this.state.value} index={0}>
+              <List component="nav" aria-label="main mailbox folders">
+                {this.state.instituicoes.map(instituicao => (
+                  <Instituicao instituicao={instituicao} key={instituicao.id} />
+                ))}
+              </List>
+            </TabPanel>
+            <TabPanel value={this.state.value} index={1}>
+              ROTEIROS AINDA NAO IMPLEMENTADO
+            </TabPanel>
+            <Button onClick={this.toggleSidebar}>
+              <Typography>Mapa</Typography>
+            </Button>
+          </Drawer>
+        </div>
       );
     } else {
       return <div>Carregando info...</div>;

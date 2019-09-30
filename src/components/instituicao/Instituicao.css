@@ -1,0 +1,32 @@
+.instituicao-nome {
+    display: block;
+}
+
+.instituicao-aberta {
+    color: green;
+    display: block;
+}
+
+.instituicao-fechada {
+    color: red;
+    display: block;
+}
+
+.distancia {
+    color: gray;
+    display: block;
+}
+
+.modal-instituicao {
+    margin-top: 30vh;
+    margin-left: 5%;
+    width: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.conteudo-modal-instituicao {
+    background-color: silver;
+    border: 2px solid black;
+    padding: 10px;
+}

@@ -2,33 +2,26 @@ import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
-import ContatoInstituicaoComponent from '../components/contatoInstituicao/ContatoInstituicaoComponent';
 
-type Props = {
-  titulo: '',
-  endereco: ''
-};
-
-class DetalheInstituicaoContainer extends Component<Props> {
-  props: Props;
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
+class DetalheInstituicaoContainer extends Component {
   render() {
     return (
-      <Grid id justify="center" container spacing={10}>
+      <Grid justify="center" container spacing={6}>
         <Grid item xs={12}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <div>
-                <Grid container spacing={1}>
-                  <Grid item xs={9}>
-                    <h1 style={{ fontSize: '24px' }}>{this.props.titulo}</h1>
-                    <div style={{ color: 'grey' }}>{this.props.endereco}</div>
-                    <div style={{ color: 'green' }}>Aberto</div>
+                <Grid container spacing={8}>
+                  <Grid item xs={8}>
+                    <h1>{this.props.instituicao.nome}</h1>
+                    <div style={{ color: 'grey' }}>
+                      {this.props.instituicao.endereco}
+                    </div>
+                    {this.props.instituicao.aberto ? (
+                      <div className="instituicao-aberta">Aberto</div>
+                    ) : (
+                      <div className="instituicao-fechada">Fechado</div>
+                    )}
                   </Grid>
                   <Grid
                     container
@@ -45,15 +38,21 @@ class DetalheInstituicaoContainer extends Component<Props> {
               </div>
             </Grid>
             <Grid item xs={5}>
-              <TabelaHorarioComponent />
+              <TabelaHorarioComponent
+                horario={this.props.instituicao.horario_visitacao}
+              />
             </Grid>
 
             <Grid container spacing={2} item xs={7}>
               <Grid item xs={12}>
-                <DescricaoInstituicaoComponent />
+                <DescricaoInstituicaoComponent
+                  descricao={this.props.instituicao.descricao}
+                />
               </Grid>
               <Grid item xs={12}>
-                <ContatoInstituicaoComponent />
+                <p>E-mail: {this.props.instituicao.email}</p>
+                <p>Site:</p>
+                <p>Telefone: {this.props.instituicao.telefone}</p>
               </Grid>
             </Grid>
             <Grid item xs={12}>

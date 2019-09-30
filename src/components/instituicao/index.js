@@ -1,35 +1,92 @@
 import React, { Component } from 'react';
-import { ListItem, ListItemText, Typography } from '@material-ui/core';
+import {
+  ListItem,
+  ListItemText,
+  Typography,
+  Divider,
+  Modal
+} from '@material-ui/core';
+
+import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
+
+import './Instituicao.css';
 
 export class Instituicao extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      modalOpen: false
+    };
   }
+
+  handleClose = () => {
+    this.setState({ modalOpen: false });
+  };
+
+  handleOpen = () => {
+    this.setState({ modalOpen: true });
+  };
+
+  modal = instituicao => {
+    return (
+      <Modal
+        open={this.state.modalOpen}
+        onClose={this.handleClose}
+        className="modal-instituicao"
+      >
+        <div className="conteudo-modal-instituicao">
+          <DetalheInstituicaoContainer instituicao={instituicao} />
+        </div>
+      </Modal>
+    );
+  };
 
   render() {
     const { instituicao } = this.props;
 
     return (
-      <ListItem button alignItems="flex-start" key={instituicao.id}>
-        <ListItemText
-          primary={instituicao.nome}
-          secondary={
-            <React.Fragment>
+      <React.Fragment>
+        {this.modal(instituicao)}
+        <ListItem
+          onClick={this.handleOpen}
+          button
+          alignItems="flex-start"
+          key={instituicao.id}
+        >
+          <ListItemText
+            primary={
               <Typography
-                component="span"
-                variant="body2"
-                className="AS"
-                color="textPrimary"
+                variant="h6"
+                component={'span'}
+                className="instituicao-nome"
               >
-                {instituicao.descricao}
+                {instituicao.nome}
               </Typography>
-              {` ${instituicao.telefone} | Aberto agora: ${
-                instituicao.aberto ? 'Sim' : 'Não'
-              } `}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
+            }
+            secondary={
+              <React.Fragment>
+                {instituicao.aberto ? (
+                  <Typography component={'span'} className="instituicao-aberta">
+                    Aberto
+                  </Typography>
+                ) : (
+                  <Typography
+                    component={'span'}
+                    className="instituicao-fechada"
+                  >
+                    Fechado
+                  </Typography>
+                )}
+                <Typography component={'span'} className="distancia">
+                  {instituicao.distancia} {' Km'}
+                </Typography>
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <Divider />
+      </React.Fragment>
     );
   }
 }
