@@ -11,8 +11,11 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-items-carousel": "^2.3.7",
+    "axios": "latest",
+    "react-multi-carousel": "^2.2.6",
+    "react-read-more-less": "^0.1.6",
     "react-scripts": "3.1.1",
-    "axios": "latest"
+    "read-more-react": "^1.0.9"
   },
   "scripts": {
     "start": "react-scripts start",
