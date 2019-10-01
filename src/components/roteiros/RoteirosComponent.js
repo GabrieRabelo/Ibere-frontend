@@ -4,11 +4,16 @@ import {
   Divider,
   List,
   ListItemText,
-  Collapse
+  Collapse,
+  Button
 } from '@material-ui/core';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import {
+  ExpandLess,
+  ExpandMore,
+  SubdirectoryArrowRight
+} from '@material-ui/icons';
 
+import MapIcon from '../../assets/icons/map_icon.svg';
 import './roteiros.css';
 import InstituicaoRoteiro from '../instituicaoRoteiro/InstituicaoRoteiro';
 
@@ -37,7 +42,12 @@ export class Roteiros extends Component {
                     button
                     onClick={this.handleClick.bind(this, roteiro.nome)}
                   >
-                    <ListItemText primary={roteiro.nome} />
+                    <img src={MapIcon} />
+                    <ListItemText
+                      className="titulo-roteiro"
+                      primary={roteiro.nome}
+                      secondary="Em torno de 2h 50m"
+                    />
                     {this.state[roteiro.nome] ? <ExpandLess /> : <ExpandMore />}
                   </ListItem>
                   <Collapse
@@ -57,6 +67,13 @@ export class Roteiros extends Component {
                         );
                       })}
                     </List>
+
+                    <div className="rotas">
+                      <Button variant="outlined">
+                        <SubdirectoryArrowRight />
+                        ROTAS
+                      </Button>
+                    </div>
                   </Collapse>
                 </React.Fragment>
               ) : (

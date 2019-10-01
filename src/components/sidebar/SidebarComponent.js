@@ -45,7 +45,7 @@ class SidebarView extends Component {
     return {
       id: `simple-tab-${index}`,
       'aria-controls': `simple-tabpanel-${index}`
-      };
+    };
   };
 
   handleChange = (_, newValue) => {
