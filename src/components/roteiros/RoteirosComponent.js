@@ -42,7 +42,7 @@ export class Roteiros extends Component {
                     button
                     onClick={this.handleClick.bind(this, roteiro.nome)}
                   >
-                    <img src={MapIcon} />
+                    <img src={MapIcon} alt="pointer" />
                     <ListItemText
                       className="titulo-roteiro"
                       primary={roteiro.nome}

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { ListItem, ListItemText, Typography } from '@material-ui/core';
 
-import ArrowDropDownCircle from '@material-ui/icons/ArrowDropDownCircle';
-
 import './instituicaoRoteiro.css';
+import Pointer from '../../assets/icons/pointer.svg';
 
 export class InstituicaoRoteiro extends Component {
   render() {
@@ -11,8 +10,10 @@ export class InstituicaoRoteiro extends Component {
 
     return (
       <ListItem button key={instituicao.id} className="lista-instituicoes">
-        <ArrowDropDownCircle />
+        <img width="19vh" src={Pointer} alt="pointer" />
+
         <ListItemText
+          className="instituicao-roteiro"
           primary={instituicao.nome}
           secondary={
             <React.Fragment>
