@@ -11,7 +11,7 @@ class TabelaHorarioComponent extends React.Component {
     return (
       <Grid className="containerTotal" container>
         <Grid className="tituloContainer">
-          <Typography variant="subtitle3" className="horario">
+          <Typography variant="subtitle1" className="horario">
             Horários
           </Typography>
         </Grid>
