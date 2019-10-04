@@ -65,7 +65,9 @@ class DetalheInstituicaoContainer extends Component {
               spacing={2}
             >
               <Grid item xs={6}>
-                <TabelaHorarioComponent horarios={this.props.instituicao.horarios}/>
+                <TabelaHorarioComponent
+                  horarios={this.props.instituicao.horarios}
+                />
               </Grid>
               <Grid item xs={6} className="contatoContainer">
                 <Typography variant="body2" id="email">

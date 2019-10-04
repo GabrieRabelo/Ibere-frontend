@@ -4,7 +4,7 @@ import './TabelaHorario.css';
 
 class TabelaHorarioComponent extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
@@ -19,16 +19,16 @@ class TabelaHorarioComponent extends React.Component {
           return (
             <Grid container className="dia" key={h.dia}>
               <Grid item xs={4}>
-                <Typography variant='body2'>{h.dia}</Typography>
+                <Typography variant="body2">{h.dia}</Typography>
               </Grid>
               <Grid item xs={8}>
-                <Typography variant='body2'>{`${h.horario_abertura} ----- ${h.horario_encerramento}`}</Typography>
+                <Typography variant="body2">{`${h.horario_abertura} ----- ${h.horario_encerramento}`}</Typography>
               </Grid>
             </Grid>
           );
         })}
       </Grid>
-    );  
+    );
   }
 }
 
