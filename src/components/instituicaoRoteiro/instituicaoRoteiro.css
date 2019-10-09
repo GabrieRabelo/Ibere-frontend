@@ -1,0 +1,26 @@
+.instituicao-nome {
+    display: block;
+}
+
+.instituicao-aberta {
+    color: mediumseagreen;
+    display: inline-block;
+}
+
+.instituicao-fechada {
+    color: lightgray;
+    display: inline-block;
+}
+
+.tempo-visita {
+    display: inline-block;
+    padding-left: 5%;
+}
+
+.lista-instituicoes {
+    margin-left: 10% !important;
+}
+
+.instituicao-roteiro {
+    padding-left: 3%;
+}
