@@ -25,7 +25,7 @@ class CarouselComponent extends React.Component {
   render() {
     return (
       <AliceCarousel
-        buttonsDisabled={true}
+        buttonsDisabled={true} 
         items={this.images}
         autoHeight={true}
         infinite={true}
