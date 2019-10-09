@@ -64,12 +64,12 @@ class DetalheInstituicaoContainer extends Component {
               justify="flex-start"
               spacing={2}
             >
-              <Grid item xs={6}>
+              <Grid item xs={7}>
                 <TabelaHorarioComponent
                   horarios={this.props.instituicao.horarios}
                 />
               </Grid>
-              <Grid item xs={6} className="contatoContainer">
+              <Grid item xs={5} className="contatoContainer">
                 <Typography variant="body2" id="email">
                   {this.props.instituicao.email}
                 </Typography>
