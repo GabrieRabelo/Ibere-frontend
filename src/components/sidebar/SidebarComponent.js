@@ -11,28 +11,34 @@ import {
 } from '@material-ui/core';
 
 import Instituicao from '../instituicao/Instituicao';
+import Roteiros from '../roteiros/RoteirosComponent';
 import TabPanel from '../tabPanel/TabPanelComponent';
 import MapHeader from '../mapHeader/mapHeaderComponent';
 import SidebarHeader from '../sidebarHeader/SidebarHeaderComponent';
 
 import './Sidebar.css';
 import InstituicaoService from '../../services/InstituicaoService';
+import RoteiroService from '../../services/RoteiroService';
 
 class SidebarView extends Component {
   constructor(props) {
     super(props);
     this.instituicaoService = new InstituicaoService();
+    this.roteiroService = new RoteiroService();
 
     this.state = {
       instituicoes: [],
-      value: 0,
+      roteiros: [],
+      value: 1,
       modalOpen: false,
       sidebarOpen: true
     };
   }
+
   async componentDidMount() {
     const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
-    this.setState({ instituicoes: listaInstituicoes });
+    const listaRoteiros = await this.roteiroService.listaRoteiros();
+    this.setState({ instituicoes: listaInstituicoes, roteiros: listaRoteiros });
   }
 
   a11yProps = index => {
@@ -82,13 +88,19 @@ class SidebarView extends Component {
                   <Instituicao instituicao={instituicao} key={instituicao.id} />
                 ))}
               </List>
+              <Button onClick={this.toggleSidebar}>
+                <Typography>Mapa</Typography>
+              </Button>
             </TabPanel>
             <TabPanel value={this.state.value} index={1}>
-              ROTEIROS AINDA NAO IMPLEMENTADO
+              <List component="nav" aria-label="main mailbox folders">
+                <Roteiros roteiros={this.state.roteiros} />
+              </List>
+
+              <Button onClick={this.toggleSidebar}>
+                <Typography>Mapa</Typography>
+              </Button>
             </TabPanel>
-            <Button onClick={this.toggleSidebar}>
-              <Typography>Mapa</Typography>
-            </Button>
           </Drawer>
         </div>
       );
