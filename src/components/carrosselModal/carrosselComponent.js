@@ -1,15 +1,12 @@
 import React from 'react';
 
-import AliceCarousel from 'react-alice-carousel'
-import "react-alice-carousel/lib/alice-carousel.css";
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 class CarouselComponent extends React.Component {
-
   images = this.props.instituicao.imagens.map(i => {
-    return(
-      <img className="imagem" src={i}></img>
-    )
-  })
+    return <img className="imagem" src={i} key={i}></img>;
+  });
 
   responsive = {
     0: {
@@ -17,17 +14,17 @@ class CarouselComponent extends React.Component {
     },
 
     350: {
-      items: 1.1 
+      items: 1.1
     },
 
     414: {
       items: 1.3
     }
-  }
+  };
 
   render() {
     return (
-      <AliceCarousel 
+      <AliceCarousel
         buttonsDisabled={true}
         items={this.images}
         autoHeight={true}
