@@ -1,0 +1,5 @@
+li.alice-carousel__stage-item :not(.__cloned) {
+    width: auto !important;
+    margin-right: 1rem;
+}
+

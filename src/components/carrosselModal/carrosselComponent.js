@@ -17,18 +17,17 @@ class CarouselComponent extends React.Component {
       items: 1.1
     },
 
-    414: {
-      items: 1.3
+    412: {
+      items: 1.2
     }
   };
 
   render() {
     return (
       <AliceCarousel
-        buttonsDisabled={true} 
+        buttonsDisabled={true}
         items={this.images}
         autoHeight={true}
-        infinite={true}
         responsive={this.responsive}
       />
     );

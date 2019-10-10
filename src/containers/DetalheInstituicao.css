@@ -21,7 +21,7 @@
 
 .contatoContainer {
     color: gray;
-    word-break: break-word;
+    word-break: break-all; 
 }
 
 #email {
