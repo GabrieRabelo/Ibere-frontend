@@ -1,5 +1,8 @@
-li.alice-carousel__stage-item :not(.__cloned) {
-    width: auto !important;
-    margin-right: 1rem;
+.imagem {
+    width: 100%;
 }
 
+.alice-carousel__stage-item {
+    max-height: 250px;
+    padding-left: 6%;
+}
