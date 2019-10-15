@@ -6,17 +6,28 @@ import SidebarView from '../../components/sidebar/SidebarComponent';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 import CurrentLocation from '../currentLocation';
+import InstituicaoService from '../../services/InstituicaoService';
+
 
 class MapView extends Component {
   constructor(props) {
     super(props);
+    this.instituicaoService = new InstituicaoService();
 
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {},
+      defaultMarks: [ ]
     };
   }
+
+  async componentDidMount() {
+    const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
+    this.setState({ defaultMarks : listaInstituicoes });
+    console.log(this.state.defaultMarks)
+  }
+    
 
   onMarkerClick = (props, marker) =>
     this.setState({
@@ -48,7 +59,7 @@ class MapView extends Component {
               <h4>{this.state.selectedPlace.name}</h4>
             </div>
           </InfoWindow>
-        </CurrentLocation>
+        </CurrentLocation>        
         <SidebarView />
       </Grid>
     );
