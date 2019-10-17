@@ -18,26 +18,27 @@ class MapView extends Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-      defaultMarks: [ ]
+      defaultMarks: []
     };
   }
 
   async componentDidMount() {
     const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
-    this.setState({ defaultMarks : listaInstituicoes });
+    this.setState({ defaultMarks: listaInstituicoes });
     console.log(this.state.defaultMarks)
   }
 
   displayMarkers = () => {
     return this.state.defaultMarks.map((store, index) => {
-      return <Marker key={index} id={index} position={{
-       lat: store.latitude,
-       lng: store.longitude
-     }}
-     onClick={() => console.log("You clicked me!")} />
+      return <Marker key={index} id={index} name={store.nome} position={{
+          lat: store.latitude,
+          lng: store.longitude
+        }} />
+        
     })
   }
-    
+
+
 
   onMarkerClick = (props, marker) =>
     this.setState({
@@ -70,7 +71,7 @@ class MapView extends Component {
             </div>
           </InfoWindow>
           {this.displayMarkers()}
-        </CurrentLocation>        
+        </CurrentLocation>
         <SidebarView />
       </Grid>
     );
