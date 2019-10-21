@@ -51,40 +51,38 @@ class DetalheInstituicaoContainer extends Component {
                 </Fab>
               </Grid>
             </Grid>
-
-            <Grid item xs={5}>
-              <TabelaHorarioComponent
-                horario={this.props.instituicao.horario_visitacao}
+            <hr className="divider" />
+            <Grid item xs={12}>
+              <DescricaoInstituicaoComponent
+                descricao={this.props.instituicao.descricao}
               />
+            </Grid>
 
-              <hr className="divider" />
-              <Grid item xs={12}>
-                <DescricaoInstituicaoComponent
-                  descricao={this.props.instituicao.descricao}
+            <Grid
+              className="horariosContatoContainer"
+              container
+              justify="flex-start"
+              spacing={2}
+            >
+              <Grid item xs={7}>
+                <TabelaHorarioComponent
+                  horarios={this.props.instituicao.horarios}
                 />
               </Grid>
-
-              <Grid
-                className="horariosContatoContainer"
-                container
-                justify="flex-start"
-                spacing={2}
-              >
-                <Grid item xs={6} className="contatoContainer">
-                  <Typography variant="body2" id="email">
-                    {this.props.instituicao.email}
-                  </Typography>
-                  <Typography variant="body2">
-                    {this.props.instituicao.site ? this.props.site : ''}
-                  </Typography>
-                  <Typography variant="body2">
-                    {this.props.instituicao.telefone}
-                  </Typography>
-                </Grid>
+              <Grid item xs={5} className="contatoContainer">
+                <Typography variant="body2" id="email">
+                  {this.props.instituicao.email}
+                </Typography>
+                <Typography variant="body2">
+                  {this.props.instituicao.site ? this.props.site : ''}
+                </Typography>
+                <Typography variant="body2">
+                  {this.props.instituicao.telefone}
+                </Typography>
               </Grid>
-              <Grid item xs={12}>
-                <CarouselComponent instituicao={this.props.instituicao} />
-              </Grid>
+            </Grid>
+            <Grid item xs={12}>
+              <CarouselComponent instituicao={this.props.instituicao} />
             </Grid>
           </Grid>
         </Grid>
