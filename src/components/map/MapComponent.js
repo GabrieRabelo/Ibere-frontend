@@ -27,6 +27,7 @@ class MapView extends Component {
     this.setState({ defaultMarks: listaInstituicoes });
     console.log(this.state.defaultMarks)
   }
+  
   onMarkerClick = (props, marker) =>
     this.setState({
       selectedPlace: props,
@@ -59,7 +60,7 @@ class MapView extends Component {
           </InfoWindow>
 
           {this.state.defaultMarks.map((store, index) => (
-            <Marker onClick={this.onMarkerClick} name={store.nome} key={index} id={index} position={{
+            <Marker onClick={this.onMarkerClick} name={store.nome} endereco={store.endereco} key={index} id={index} position={{
               lat: store.latitude,
               lng: store.longitude
             }} />             
@@ -68,11 +69,10 @@ class MapView extends Component {
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
             <div>
-              <h3>{this.state.selectedPlace.name}</h3>
+              <h4>{this.state.selectedPlace.name}</h4>
+              <h5>{this.state.selectedPlace.endereco}</h5>
             </div>
           </InfoWindow>
-
-
         </CurrentLocation>
         <SidebarView />
       </Grid>
