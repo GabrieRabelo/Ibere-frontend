@@ -7,6 +7,7 @@ import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 import CurrentLocation from '../currentLocation';
 import InstituicaoService from '../../services/InstituicaoService';
+import { Title } from '@material-ui/icons';
 
 
 class MapView extends Component {
@@ -28,23 +29,29 @@ class MapView extends Component {
     console.log(this.state.defaultMarks)
   }
 
+  onClickDefaultMarks = (props) => {
+    console.log(props.name)
+    this.setState({
+      selectedPlace: props.name
+    });
+  }
+
+
   displayMarkers = () => {
     return this.state.defaultMarks.map((store, index) => {
-      return <Marker key={index} id={index} name={store.nome} position={{
+      return <Marker  onClick = {this.onClickDefaultMarks} key={index} id={index} name={store.nome} position={{
           lat: store.latitude,
-          lng: store.longitude
+          lng: store.longitude,
         }} />
         
     })
   }
 
-
-
   onMarkerClick = (props, marker) =>
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
-      showingInfoWindow: true
+      showingInfoWindow: true,
     });
 
   onClose = () => {
@@ -55,20 +62,20 @@ class MapView extends Component {
       });
     }
   };
-
+    
   render() {
     return (
       <Grid>
         <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
-          <Marker onClick={this.onMarkerClick} name={'current location'} />
-          <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}
-            onClose={this.onClose}
-          >
-            <div>
-              <h4>{this.state.selectedPlace.name}</h4>
-            </div>
+          <Marker onClick={this.onMarkerClick} name={'current location'}/>
+           <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+          onClose={this.onClose}  
+          > 
+          <div>
+            <h4>{this.state.selectedPlace.name}</h4>
+          </div>
           </InfoWindow>
           {this.displayMarkers()}
         </CurrentLocation>
