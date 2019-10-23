@@ -1,0 +1,29 @@
+image: node:latest
+
+stages:
+  - install
+  - clean
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependecy:
+  stage: install
+  except:
+    - master
+  script:
+    - npm install
+  cache:
+    paths:
+      - node_modules/
+
+clean:
+  stage: clean
+  except:
+    - master
+  script:
+    - rm -rf node_modules
+  cache:
+    paths:
+      - node_modules/
