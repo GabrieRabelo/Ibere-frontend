@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 
-import Grid from '@material-ui/core/Grid';
+import {Grid, Typography}  from '@material-ui/core';
 
 import SidebarView from '../../components/sidebar/SidebarComponent';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 import CurrentLocation from '../currentLocation';
 import InstituicaoService from '../../services/InstituicaoService';
+
+import './MapComponent.css'
+import { green, red } from '@material-ui/core/colors';
+import { typography } from '@material-ui/system';
+import color from '@material-ui/core/colors/blueGrey';
 
 
 class MapView extends Component {
@@ -32,7 +37,7 @@ class MapView extends Component {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
-      showingInfoWindow: true
+      showingInfoWindow: true,
     });
 
   onClose = () => {
@@ -60,7 +65,7 @@ class MapView extends Component {
           </InfoWindow>
 
           {this.state.defaultMarks.map((store, index) => (
-            <Marker onClick={this.onMarkerClick} name={store.nome} endereco={store.endereco} key={index} id={index} position={{
+            <Marker onClick={this.onMarkerClick} name={store.nome} endereco={store.endereco} aberto={store.aberto} key={index} id={index} position={{
               lat: store.latitude,
               lng: store.longitude
             }} />             
@@ -71,6 +76,11 @@ class MapView extends Component {
             <div>
               <h4>{this.state.selectedPlace.name}</h4>
               <h5>{this.state.selectedPlace.endereco}</h5>
+              {this.state.selectedPlace.aberto ? (
+               <h6 style={{color: 'green'}}>Aberto</h6>
+              ) : (
+               <h6 style={{color: 'red'}}>Fechado</h6> 
+              )}
             </div>
           </InfoWindow>
         </CurrentLocation>

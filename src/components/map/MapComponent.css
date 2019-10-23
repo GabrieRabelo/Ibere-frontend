@@ -1,0 +1,11 @@
+.aberto {
+    color: green;
+}
+
+.fechado {
+    color: red;
+}
+
+h6{
+   font-family: 'Courier New', Courier, monospace; 
+}
