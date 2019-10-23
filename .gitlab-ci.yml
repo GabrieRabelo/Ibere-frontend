@@ -2,16 +2,25 @@ image: node:latest
 
 stages:
   - test
-
-before_script:
-  - npm install
+  - clean
 
 test:
   stage: test
   except:
     - master
   script:
+    - npm install
     - npm test
+  cache:
+    paths:
+      - node_modules/
+
+clean:
+  stage: clean
+  except:
+    - master
+  script:
+    - rm -rf node_modules/
   cache:
     paths:
       - node_modules/
