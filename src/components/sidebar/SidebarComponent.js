@@ -29,7 +29,7 @@ class SidebarView extends Component {
     this.state = {
       instituicoes: [],
       roteiros: [],
-      value: 1,
+      value: 0,
       modalOpen: false,
       sidebarOpen: true
     };
