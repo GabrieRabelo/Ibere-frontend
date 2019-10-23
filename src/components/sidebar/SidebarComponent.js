@@ -65,21 +65,21 @@ class SidebarView extends Component {
           <MapHeader open={this.toggleSidebar} />
 
           <Drawer open={this.state.sidebarOpen}>
-            <AppBar position="static" color="default">
+            <AppBar elevation={0} position="static" color="white">
               <SidebarHeader />
               <Divider />
 
-              <Tabs value={this.state.value} onChange={this.handleChange}>
-                <Tab
-                  label="ESPAÇOS"
-                  {...this.a11yProps(0)}
-                  style={{ width: '50%' }}
-                />
-                <Tab
-                  label="ROTEIROS"
-                  {...this.a11yProps(1)}
-                  style={{ width: '50%' }}
-                />
+              <Tabs
+                TabIndicatorProps={{
+                  style: {
+                    backgroundColor: '#646464'
+                  }
+                }}
+                value={this.state.value}
+                onChange={this.handleChange}
+              >
+                <Tab label="ESPAÇOS" {...this.a11yProps(0)} className="aba" />
+                <Tab label="ROTEIROS" {...this.a11yProps(1)} className="aba" />
               </Tabs>
             </AppBar>
             <TabPanel value={this.state.value} index={0}>

@@ -1,3 +1,7 @@
 .MuiDrawer-paper {
     width: 100%;
 }
+
+.aba {
+    width: 50% !important;
+}
