@@ -5,3 +5,7 @@
 .aba {
     width: 50% !important;
 }
+
+.aba-selecionada {
+    background-color: #646464 !important;
+}

@@ -71,9 +71,7 @@ class SidebarView extends Component {
 
               <Tabs
                 TabIndicatorProps={{
-                  style: {
-                    backgroundColor: '#646464'
-                  }
+                  className: 'aba-selecionada'
                 }}
                 value={this.state.value}
                 onChange={this.handleChange}
