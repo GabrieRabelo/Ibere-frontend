@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {Grid, Typography}  from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 import SidebarView from '../../components/sidebar/SidebarComponent';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
@@ -8,10 +8,6 @@ import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from '../currentLocation';
 import InstituicaoService from '../../services/InstituicaoService';
 
-import './MapComponent.css'
-import { green, red } from '@material-ui/core/colors';
-import { typography } from '@material-ui/system';
-import color from '@material-ui/core/colors/blueGrey';
 
 
 class MapView extends Component {
@@ -32,7 +28,7 @@ class MapView extends Component {
     this.setState({ defaultMarks: listaInstituicoes });
     console.log(this.state.defaultMarks)
   }
-  
+
   onMarkerClick = (props, marker) =>
     this.setState({
       selectedPlace: props,
@@ -49,38 +45,46 @@ class MapView extends Component {
     }
   };
 
+
+
   render() {
     return (
       <Grid>
         <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
-          <Marker onClick={this.onMarkerClick} name={'Localização Atual'} />
-          <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}
-            onClose={this.onClose}
-          >
-            <div>
-              <h4>{this.state.selectedPlace.name}</h4>
-            </div>
-          </InfoWindow>
+          <Marker onClick={this.onMarkerClick} name={'Localização atual'} />
+
 
           {this.state.defaultMarks.map((store, index) => (
-            <Marker onClick={this.onMarkerClick} name={store.nome} endereco={store.endereco} aberto={store.aberto} key={index} id={index} position={{
+            <Marker onClick={this.onMarkerClick} name={store.nome} endereco={store.endereco} printOpen={true} aberto={store.aberto} key={index} id={index} position={{
               lat: store.latitude,
               lng: store.longitude
-            }} />             
+            }} />
           ))}
           <InfoWindow
             marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}>
+            visible={this.state.showingInfoWindow}
+            onClose={this.onClose}>
             <div>
-              <h4>{this.state.selectedPlace.name}</h4>
-              <h5>{this.state.selectedPlace.endereco}</h5>
-              {this.state.selectedPlace.aberto ? (
-               <h6 style={{color: 'green'}}>Aberto</h6>
-              ) : (
-               <h6 style={{color: 'red'}}>Fechado</h6> 
-              )}
+              <Grid>
+                <Typography className="nome" >
+                  {this.state.selectedPlace.name}
+                </Typography>
+
+                <Typography className="endereco" >
+                  {this.state.selectedPlace.endereco}
+                </Typography>
+
+                {this.state.selectedPlace.printOpen ? (
+                  this.state.selectedPlace.aberto ? (
+                    <Typography className="aberto" style={{color:'green'}}>Aberto</Typography>
+                  ) : (
+                      <Typography className="fechado" style={{color:'red'}}>Fechado</Typography>
+                    )) : (
+                    <></>)}
+
+
+
+              </Grid>
             </div>
           </InfoWindow>
         </CurrentLocation>
