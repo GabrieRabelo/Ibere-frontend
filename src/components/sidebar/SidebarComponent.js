@@ -65,7 +65,7 @@ class SidebarView extends Component {
           <MapHeader open={this.toggleSidebar} />
 
           <Drawer open={this.state.sidebarOpen}>
-            <AppBar elevation={0} position="static" color="white">
+            <AppBar elevation={0} position="static" color="inherit">
               <SidebarHeader />
               <Divider />
 
