@@ -69,9 +69,9 @@ export class Roteiros extends Component {
                     </List>
 
                     <div className="rotas">
-                      <Button variant="outlined">
+                      <Button className="botao-rota" variant="outlined">
                         <SubdirectoryArrowRight />
-                        ROTAS
+                        <span className="botao-rota-info">ROTAS</span>
                       </Button>
                     </div>
                   </Collapse>

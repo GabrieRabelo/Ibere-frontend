@@ -1,0 +1,12 @@
+image: node:latest
+
+stages:
+  - test
+
+test:
+  stage: test
+  except:
+    - master
+  script:
+    - npm install
+    - npm test

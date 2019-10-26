@@ -3,12 +3,12 @@
 }
 
 .instituicao-aberta {
-    color: mediumseagreen;
+    color: #598f2c;
     display: inline-block;
 }
 
 .instituicao-fechada {
-    color: lightgray;
+    color: #a5a5a5;
     display: inline-block;
 }
 
@@ -23,4 +23,6 @@
 
 .instituicao-roteiro {
     padding-left: 3%;
+    color: #808080;
+    font-weight: bold;
 }
