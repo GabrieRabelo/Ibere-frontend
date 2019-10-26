@@ -14,8 +14,7 @@ export class TelaLogin extends Component {
     };
   }
 
-  handleClick = () => {
-  };
+  handleClick = () => {};
 
   onChangeUsuario = event => {
     this.setState({ usuario: event.target.value });
