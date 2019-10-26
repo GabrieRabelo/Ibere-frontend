@@ -8,7 +8,7 @@ import {
   Paper
 } from '@material-ui/core';
 
-import { KeyboardArrowRight, ExpandLess, ExpandMore } from '@material-ui/icons';
+import {ExpandLess, ExpandMore } from '@material-ui/icons';
 
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
 
