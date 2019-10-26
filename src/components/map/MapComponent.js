@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
 
-import Grid from '@material-ui/core/Grid';
+import { Grid, Typography } from '@material-ui/core';
 
 import SidebarView from '../../components/sidebar/SidebarComponent';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 import CurrentLocation from '../currentLocation';
+import InstituicaoService from '../../services/InstituicaoService';
+
+
 
 class MapView extends Component {
   constructor(props) {
     super(props);
+    this.instituicaoService = new InstituicaoService();
 
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {},
+      defaultMarks: []
     };
+  }
+
+  async componentDidMount() {
+    const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
+    this.setState({ defaultMarks: listaInstituicoes });
+    console.log(this.state.defaultMarks)
   }
 
   onMarkerClick = (props, marker) =>
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
-      showingInfoWindow: true
+      showingInfoWindow: true,
     });
 
   onClose = () => {
@@ -34,18 +45,46 @@ class MapView extends Component {
     }
   };
 
+
+
   render() {
     return (
       <Grid>
         <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
-          <Marker onClick={this.onMarkerClick} name={'current location'} />
+          <Marker onClick={this.onMarkerClick} name={'Localização atual'} />
+
+
+          {this.state.defaultMarks.map((store, index) => (
+            <Marker onClick={this.onMarkerClick} name={store.nome} endereco={store.endereco} printOpen={true} aberto={store.aberto} key={index} id={index} position={{
+              lat: store.latitude,
+              lng: store.longitude
+            }} />
+          ))}
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
-            onClose={this.onClose}
-          >
+            onClose={this.onClose}>
             <div>
-              <h4>{this.state.selectedPlace.name}</h4>
+              <Grid>
+                <Typography className="nome" >
+                  {this.state.selectedPlace.name}
+                </Typography>
+
+                <Typography className="endereco" >
+                  {this.state.selectedPlace.endereco}
+                </Typography>
+
+                {this.state.selectedPlace.printOpen ? (
+                  this.state.selectedPlace.aberto ? (
+                    <Typography className="aberto" style={{color:'green'}}>Aberto</Typography>
+                  ) : (
+                      <Typography className="fechado" style={{color:'red'}}>Fechado</Typography>
+                    )) : (
+                    <></>)}
+
+
+
+              </Grid>
             </div>
           </InfoWindow>
         </CurrentLocation>
