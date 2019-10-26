@@ -8,6 +8,8 @@ import {
   Paper
 } from '@material-ui/core';
 
+import { KeyboardArrowRight } from '@material-ui/icons';
+
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
 
 import './Instituicao.css';
@@ -85,6 +87,9 @@ export class Instituicao extends Component {
               </React.Fragment>
             }
           />
+          <div className="seta">
+            <KeyboardArrowRight />
+          </div>
         </ListItem>
         <Divider />
       </React.Fragment>

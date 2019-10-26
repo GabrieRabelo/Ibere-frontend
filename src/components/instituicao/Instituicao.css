@@ -1,20 +1,28 @@
 .instituicao-nome {
     display: block;
+    font-size: 16px !important;
+    color: #4f4f4f !important;
+    font-weight: 400 !important;
+    margin-bottom: -1% !important;
 }
 
 .instituicao-aberta {
-    color: mediumseagreen;
+    color: #598f2c;
     display: block;
+    font-weight: 400 !important;
 }
 
 .instituicao-fechada {
-    color: red;
+    color: #a8a8a8;
     display: block;
+    font-weight: 400 !important;
 }
 
 .distancia {
-    color: gray;
+    color: #aeaeae;
     display: block;
+    margin-top: -1% !important;
+    font-weight: 300 !important;
 }
 
 .modal-instituicao {
@@ -27,4 +35,8 @@
 
 .conteudo-modal-instituicao {
     border-radius: 20px;
+}
+
+.seta {
+    margin: auto;
 }
