@@ -33,14 +33,7 @@ export class TelaLogin extends Component {
               onChange={(event, newValue) => this.setState({ senha: newValue })}
             />
 
-            <Button
-              fab
-              variant="outlined"
-              color="inherit"
-              className="entrar"
-              size="large"
-              fullWidth
-            >
+            <Button variant="outlined" color="default" size="medium" fullWidth>
               Entrar
             </Button>
           </form>
