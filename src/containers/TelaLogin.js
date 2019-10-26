@@ -14,11 +14,6 @@ export class TelaLogin extends Component {
     };
   }
 
-  handleClick(event) {
-    console.log(this.state.usuario);
-    console.log(this.state.senha);
-  }
-
   render() {
     return (
       <Container component="main" maxWidth="xs">
