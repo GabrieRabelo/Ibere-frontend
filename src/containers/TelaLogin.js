@@ -14,6 +14,17 @@ export class TelaLogin extends Component {
     };
   }
 
+  handleClick = () => {
+  };
+
+  onChangeUsuario = event => {
+    this.setState({ usuario: event.target.value });
+  };
+
+  onChangeSenha = event => {
+    this.setState({ senha: event.target.value });
+  };
+
   render() {
     return (
       <Container component="main" maxWidth="xs">
@@ -23,17 +34,20 @@ export class TelaLogin extends Component {
           <form className="form">
             <CaixaUsuarioSenha
               nome="Usuario"
-              onChange={(event, newValue) =>
-                this.setState({ usuario: newValue })
-              }
+              onChangeUsuario={this.onChangeUsuario}
             />
 
             <CaixaUsuarioSenha
               nome="Senha"
-              onChange={(event, newValue) => this.setState({ senha: newValue })}
+              onChangeSenha={this.onChangeSenha}
             />
-
-            <Button variant="outlined" color="default" size="medium" fullWidth>
+            <Button
+              variant="outlined"
+              color="default"
+              size="medium"
+              fullWidth
+              onClick={this.handleClick.bind()}
+            >
               Entrar
             </Button>
           </form>

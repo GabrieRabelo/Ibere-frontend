@@ -19,6 +19,7 @@ export class CaixaUsuarioSenha extends Component {
           label="Usuario"
           name="usuario"
           autoFocus
+          onChange={this.props.onChangeUsuario}
         />
       );
     } else {
@@ -32,6 +33,7 @@ export class CaixaUsuarioSenha extends Component {
           type="password"
           autoComplete="current-password"
           id="senha"
+          onChange={this.props.onChangeSenha}
         />
       );
     }
