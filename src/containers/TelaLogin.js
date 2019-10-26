@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import CaixaUsuarioSenha from '../components/caixaUsuarioSenha/CaixaUsuarioSenha';
 import HeaderADM from '../components/headerADM/HeaderADM';
 import './TelaLogin.css';
+import Button from '@material-ui/core/Button';
 
 export class TelaLogin extends Component {
   constructor(props) {
@@ -13,6 +13,12 @@ export class TelaLogin extends Component {
       senha: ''
     };
   }
+
+  handleClick(event) {
+    console.log(this.state.usuario);
+    console.log(this.state.senha);
+  }
+
   render() {
     return (
       <Container component="main" maxWidth="xs">
@@ -33,10 +39,11 @@ export class TelaLogin extends Component {
             />
 
             <Button
+              fab
               variant="outlined"
               color="inherit"
-              type="entrar"
-              className="Entrar"
+              className="entrar"
+              size="large"
               fullWidth
             >
               Entrar
