@@ -3,7 +3,7 @@
     font-size: 16px !important;
     color: #4f4f4f !important;
     font-weight: 400 !important;
-    margin-bottom: -1vh !important;
+    margin-bottom: -0.5vh !important;
 }
 
 .instituicao-aberta {
@@ -21,7 +21,7 @@
 .distancia {
     color: #aeaeae;
     display: block;
-    margin-top: -1vh !important;
+    margin-top: -0.5vh !important;
     font-weight: 300 !important;
 }
 
