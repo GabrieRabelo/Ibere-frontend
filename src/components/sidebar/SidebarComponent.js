@@ -47,9 +47,6 @@ class SidebarView extends Component {
   ordernaInstituicoes() {
     this.state.instituicoes.forEach(this.calcularDistancia);
 
-    console.log(this.state.instituicoes);
-
-
     this.state.instituicoes.sort(function(a, b) {
       if (a.distancia < b.distancia) {
         return -1;
@@ -59,8 +56,6 @@ class SidebarView extends Component {
       }
       return 0;
     });
-
-    console.log(this.state.localizacao);
   }
 
   calcularDistancia = instituicao => {
