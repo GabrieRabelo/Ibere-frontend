@@ -8,6 +8,8 @@ import {
   Paper
 } from '@material-ui/core';
 
+import {ExpandLess, ExpandMore } from '@material-ui/icons';
+
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
 
 import './Instituicao.css';
@@ -22,11 +24,11 @@ export class Instituicao extends Component {
   }
 
   handleClose = () => {
-    this.setState({ modalOpen: false });
+    this.setState({ modalOpen: false});
   };
 
   handleOpen = () => {
-    this.setState({ modalOpen: true });
+    this.setState({ modalOpen: true});
   };
 
   modal = instituicao => {
@@ -85,6 +87,9 @@ export class Instituicao extends Component {
               </React.Fragment>
             }
           />
+          <div className="seta">
+            {this.state.modalOpen ? <ExpandMore /> : <ExpandLess />}
+          </div>
         </ListItem>
         <Divider />
       </React.Fragment>
