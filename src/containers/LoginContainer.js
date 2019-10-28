@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from '@material-ui/core/Container';
-import CaixaUsuarioSenha from '../components/caixaUsuarioSenha/CaixaUsuarioSenha';
-import HeaderADM from '../components/headerADM/HeaderADM';
+import CaixaUsuarioSenha from '../components/InputLogin/InputLoginComponent';
+import HeaderADMComponent from '../components/headerADM/HeaderADMComponent';
 import './TelaLogin.css';
 import Button from '@material-ui/core/Button';
 
@@ -28,7 +28,7 @@ export class TelaLogin extends Component {
     return (
       <Container component="main" maxWidth="xs">
         <div className="paper">
-          <HeaderADM />
+          <HeaderADMComponent />
 
           <form className="form">
             <CaixaUsuarioSenha

@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import TelaLogin from './containers/TelaLogin';
+import LoginContainer from './containers/LoginContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/" exact="true" component={App} />
-      <Route path="/admin" component={TelaLogin} />
+      <Route path="/admin" component={LoginContainer} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
