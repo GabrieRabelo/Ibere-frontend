@@ -64,8 +64,7 @@ class SidebarView extends Component {
     const lat1 = this.state.localizacao.latitude;
     const lon1 = this.state.localizacao.longitude;
 
-    const R = 6371; // km
-    //has a problem with the .toRad() method below.
+    const R = 6371;
     const x1 = lat2 - lat1;
     const dLat = (x1 * Math.PI) / 180;
     const x2 = lon2 - lon1;
@@ -77,7 +76,7 @@ class SidebarView extends Component {
         Math.sin(dLon / 2) *
         Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    instituicao.distancia = R * c;
+    instituicao.distancia = Math.round((R * c) * 100) / 100;
   };
 
   getLocalizacao() {
