@@ -76,7 +76,7 @@ class SidebarView extends Component {
         Math.sin(dLon / 2) *
         Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    instituicao.distancia = Math.round((R * c) * 100) / 100;
+    instituicao.distancia = Math.round(R * c * 100) / 100;
   };
 
   getLocalizacao() {
