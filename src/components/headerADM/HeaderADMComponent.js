@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../../assets/images/logo_fundacao_ibere_camargo.png';
-import './HeaderADM.css';
+import './HeaderADMComponent.css';
 
 export class HeaderADM extends Component {
   render() {
