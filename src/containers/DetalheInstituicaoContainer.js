@@ -53,8 +53,9 @@ class DetalheInstituicaoContainer extends Component {
             </Grid>
             <hr className="divider" />
             <Grid item xs={12}>
-              <DescricaoInstituicaoComponent
-                descricao={this.props.instituicao.descricao}
+              <DescricaoInstituicaoComponent 
+
+                  descricao={this.props.instituicao.descricao}
               />
             </Grid>
 
@@ -67,17 +68,18 @@ class DetalheInstituicaoContainer extends Component {
               <Grid item xs={7}>
                 <TabelaHorarioComponent
                   horarios={this.props.instituicao.horarios}
+                  
                 />
-              </Grid>
-              <Grid item xs={5} className="contatoContainer">
-                <Typography variant="body2" id="email">
+                <Typography align = "left" variant="body2" id="email">
                   {this.props.instituicao.email}
                 </Typography>
                 <Typography variant="body2">
-                  {this.props.instituicao.site ? this.props.site : ''}
-                </Typography>
-                <Typography variant="body2">
                   {this.props.instituicao.telefone}
+                </Typography>
+              </Grid>
+              <Grid item xs={5} className="contatoContainer">
+                <Typography variant="body2">
+                  {this.props.instituicao.site ? this.props.site : ''}
                 </Typography>
               </Grid>
             </Grid>
