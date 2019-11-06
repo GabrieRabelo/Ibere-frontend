@@ -70,11 +70,11 @@ class DetalheInstituicaoContainer extends Component {
                   horarios={this.props.instituicao.horarios}
                   
                 />
-                <Typography align = "left" variant="body2" id="email">
-                  {this.props.instituicao.email}
+                <Typography spacing = "5" align = "left" variant="body2" id="email">
+                   Email : {this.props.instituicao.email}
                 </Typography>
                 <Typography variant="body2">
-                  {this.props.instituicao.telefone}
+                  Telefone : {this.props.instituicao.telefone}
                 </Typography>
               </Grid>
               <Grid item xs={5} className="contatoContainer">

@@ -5,9 +5,7 @@
     flex-direction: column;
 
     color: #313131;
-    background-color: grey;
-    
-    
+    border: 5px solid grey  
 }
 
 .horario {
