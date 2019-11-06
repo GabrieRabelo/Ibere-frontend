@@ -80,6 +80,7 @@ class SidebarView extends Component {
                 <Tab label="ROTEIROS" {...this.a11yProps(1)} className="aba" />
               </Tabs>
             </AppBar>
+            <Divider />
             <TabPanel value={this.state.value} index={0}>
               <List component="nav" aria-label="main mailbox folders">
                 {this.state.instituicoes.map(instituicao => (

@@ -88,7 +88,7 @@ export class Instituicao extends Component {
             }
           />
           <div className="seta">
-            {this.state.modalOpen ? <ExpandMore /> : <ExpandLess />}
+            {this.state.modalOpen ? <ExpandLess /> : <ExpandMore />}
           </div>
         </ListItem>
         <Divider />
