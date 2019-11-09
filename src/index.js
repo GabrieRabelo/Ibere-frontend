@@ -4,13 +4,17 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import LoginContainer from './containers/LoginContainer';
+import AdminContainer from './containers/AdminContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/" exact="true" component={App} />
       <Route path="/admin" component={LoginContainer} />
+      <Route path="/admin-info" component={AdminContainer} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
