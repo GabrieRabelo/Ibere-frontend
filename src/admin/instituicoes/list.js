@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Datagrid, TextField, EmailField } from 'react-admin';
-import { Horarios } from '../horarios'
+import { Horarios } from '../horarios';
 
 export const InstituicaoList = props => (
   <List {...props}>
@@ -12,7 +12,7 @@ export const InstituicaoList = props => (
       <TextField source="telefone" />
       <TextField source="latitude" />
       <TextField source="longitude" />
-      <Horarios source="horarios" />     
+      <Horarios source="horarios" />
     </Datagrid>
   </List>
-  );
+);

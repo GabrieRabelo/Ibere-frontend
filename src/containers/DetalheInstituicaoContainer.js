@@ -76,6 +76,8 @@ class DetalheInstituicaoContainer extends Component {
               >
                 <Fab href={"https://www.google.com/maps?saddr=My+Location&daddr=" + this.props.instituicao.latitude + "," + this.props.instituicao.longitude} color="inherit" className="btnRotas" size="small">
                   <img src={NavigationIcon} alt="navigate" width={50} height={50} />
+                  
+                  <SubdirectoryArrowRightIcon />
                 </Fab>
               </Grid>
             </Grid>

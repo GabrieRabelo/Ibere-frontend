@@ -7,8 +7,6 @@ import LoginContainer from './containers/LoginContainer';
 import AdminContainer from './containers/AdminContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-
-
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
