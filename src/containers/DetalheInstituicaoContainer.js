@@ -3,10 +3,13 @@ import { Grid, Typography, Fab } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
 import CarouselComponent from '../components/carrosselModal/carrosselComponent';
+import ShowMore from 'react-show-more';
+ 
 
 import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
 
 import './DetalheInstituicao.css';
+
 
 class DetalheInstituicaoContainer extends Component {
   render() {
@@ -52,13 +55,19 @@ class DetalheInstituicaoContainer extends Component {
               </Grid>
             </Grid>
             <hr className="divider" />
-            <Grid item xs={12}>
+            
+            <Grid item xs={12} zeroMinWidth>
+            <ShowMore lines = {2} more = "ler mais" less = "ler menos">
+            
               <DescricaoInstituicaoComponent 
-
+                
                   descricao={this.props.instituicao.descricao}
+                  
               />
+              </ShowMore>
             </Grid>
-
+            
+            
             <Grid
               className="horariosContatoContainer"
               container

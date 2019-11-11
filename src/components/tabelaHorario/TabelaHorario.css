@@ -5,7 +5,9 @@
     flex-direction: column;
 
     color: #313131;
-    border: 5px solid grey  
+    border: 5px medium grey;
+    box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
 }
 
 .horario {
@@ -14,6 +16,7 @@
 
 .dias {
     padding-top: 6px;
+    
 }
 
 .dia{
