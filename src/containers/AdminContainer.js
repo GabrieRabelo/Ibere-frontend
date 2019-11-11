@@ -5,7 +5,7 @@ import { InstituicaoList } from '../admin/instituicoes/list';
 import { InstituicaoCreate } from '../admin/instituicoes/create';
 
 const dataProvider = jsonServerProvider(
-  'https://my-json-server.typicode.com/joaocv3/sample_ibere_endpoint_v1'
+  'http://localhost:3001/api/v1'
 );
 
 export class TelaLogin extends Component {
@@ -13,7 +13,7 @@ export class TelaLogin extends Component {
     return (
       <Admin dataProvider={dataProvider}>
         <Resource
-          name="instituicoes"
+          name="instituicao"
           list={InstituicaoList}
           edit={EditGuesser}
           create={InstituicaoCreate}

@@ -15,10 +15,10 @@ export const InstituicaoCreate = props => (
     <SimpleForm>
       <TextInput source="nome" />
       <TextInput source="endereco" />
-      <NumberInput source="tempo_visita" />
+      <NumberInput source="tempoVisita" />
       <LongTextInput source="descricao" />
-      <TextInput source="latitude" />
-      <TextInput source="longitude" />
+      <NumberInput source="latitude" />
+      <NumberInput source="longitude" />
       <TextInput source="email" />
       <TextInput source="telefone" />
       <TextInput source="observacoes" />
@@ -30,8 +30,13 @@ export const InstituicaoCreate = props => (
       <ArrayInput source="horarios">
         <SimpleFormIterator>
           <TextInput source="dia" />
-          <TextInput source="horario_abertura" />
-          <TextInput source="horario_encerramento" />
+          <TextInput source="horaAbertura" />
+          <TextInput source="horaFechamento" />
+        </SimpleFormIterator>
+      </ArrayInput>
+      <ArrayInput source="redes">
+        <SimpleFormIterator>
+          <TextInput source="redeSocial" />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>
