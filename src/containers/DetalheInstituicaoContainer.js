@@ -71,14 +71,18 @@ class DetalheInstituicaoContainer extends Component {
             <Grid
               className="horariosContatoContainer"
               container
-              justify="flex-start"
-              spacing={2}
+              spacing={3}  
+              direction="column"
+              alignItems="center"
+
             >
               <Grid item xs={7}>
                 <TabelaHorarioComponent
-                  horarios={this.props.instituicao.horarios}
-                  
+                  horarios={this.props.instituicao.horarios}                  
                 />
+              </Grid>
+
+              <Grid className="email-telefone">
                 <Typography spacing = "5" align = "left" variant="body2" id="email">
                    Email : {this.props.instituicao.email}
                 </Typography>
@@ -86,6 +90,7 @@ class DetalheInstituicaoContainer extends Component {
                   Telefone : {this.props.instituicao.telefone}
                 </Typography>
               </Grid>
+
               <Grid item xs={5} className="contatoContainer">
                 <Typography variant="body2">
                   {this.props.instituicao.site ? this.props.site : ''}

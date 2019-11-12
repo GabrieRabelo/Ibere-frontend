@@ -1,26 +1,23 @@
 .containerTotal {
     width: 100%;
-
     display: flex;
     flex-direction: column;
-
     color: #313131;
-    border: 5px medium grey;
-    box-shadow: 1px 1px 3px #000;
-    -webkit-box-shadow: 1px 1px 3px #000;
 }
 
 .horario {
     font-weight: bold !important;
 }
 
-.dias {
-    padding-top: 6px;
-    
-}
+
 
 .dia{
     display: flex;
     font-size: 12px;
     height: 25px;
+}
+
+.tituloContainer{
+    display:flex;
+    justify-content: center;
 }

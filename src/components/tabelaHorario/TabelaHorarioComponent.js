@@ -6,15 +6,15 @@ class TabelaHorarioComponent extends React.Component {
   render() {
     return (
       <Grid className="containerTotal" container>
-        <Grid className="tituloContainer">
-          <Typography variant="subtitle1" className="horario">
+        <Grid className="tituloContainer" >
+          <Typography variant="subtitle1" className="horario" >
             Horários
           </Typography>
         </Grid>
         {this.props.horarios.map(h => {
           return (
             <Grid container className="dia" key={h.dia}>
-              <Grid item xs={4}>
+              <Grid item xs={4} >
                 <Typography  variant="body2">{h.dia}</Typography>
               </Grid>
               <Grid item xs={8}>
