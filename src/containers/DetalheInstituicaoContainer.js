@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Grid, Typography, Fab } from '@material-ui/core';
+import { Grid, Typography, Fab, ButtonBase } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
 import CarouselComponent from '../components/carrosselModal/carrosselComponent';
-import ShowMore from 'react-show-more';
- 
+
+
 
 import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
 
@@ -12,6 +12,32 @@ import './DetalheInstituicao.css';
 
 
 class DetalheInstituicaoContainer extends Component {
+  constructor(props) {
+    super(props)
+
+
+    this.state = {
+      descricao: this.props.instituicao.descricao.substring(0, 60)+'...',
+      fullDescription: false
+    };
+  }
+
+  openDescription = () => {
+    if (!this.state.fullDescription) {
+      this.setState({
+        fullDescription: true,
+        descricao: this.props.instituicao.descricao
+
+      });
+    } else {
+      this.setState({
+        fullDescription: false,
+        descricao: this.props.instituicao.descricao.substring(0, 20)
+      });
+    }
+  };
+
+
   render() {
     return (
       <Grid className="container" justify="center" container>
@@ -33,13 +59,13 @@ class DetalheInstituicaoContainer extends Component {
                     Aberto
                   </Typography>
                 ) : (
-                  <Typography
-                    variant="subtitle2"
-                    className="instituicao-fechada"
-                  >
-                    Fechado
+                    <Typography
+                      variant="subtitle2"
+                      className="instituicao-fechada"
+                    >
+                      Fechado
                   </Typography>
-                )}
+                  )}
               </Grid>
               <Grid
                 container
@@ -49,42 +75,39 @@ class DetalheInstituicaoContainer extends Component {
                 item
                 xs={2}
               >
-                <Fab href={"https://www.google.com/maps?saddr=My+Location&daddr="+ this.props.instituicao.latitude + "," + this.props.instituicao.longitude} color="inherit" className="btnRotas" size="small">
+                <Fab href={"https://www.google.com/maps?saddr=My+Location&daddr=" + this.props.instituicao.latitude + "," + this.props.instituicao.longitude} color="inherit" className="btnRotas" size="small">
                   <SubdirectoryArrowRightIcon />
                 </Fab>
               </Grid>
             </Grid>
             <hr className="divider" />
-            
+
             <Grid item xs={12} zeroMinWidth>
-            <ShowMore lines = {2} more = "ler mais" less = "ler menos">
-            
-              <DescricaoInstituicaoComponent 
-                
-                  descricao={this.props.instituicao.descricao}
-                  
-              />
-              </ShowMore>
+              <ButtonBase onClick={this.openDescription} >
+                <DescricaoInstituicaoComponent
+                  descricao={this.state.descricao}
+                />
+              </ButtonBase>
             </Grid>
-            
-            
+
+
             <Grid
               className="horariosContatoContainer"
               container
-              spacing={3}  
+              spacing={3}
               direction="column"
               alignItems="center"
 
             >
               <Grid item xs={7}>
                 <TabelaHorarioComponent
-                  horarios={this.props.instituicao.horarios}                  
+                  horarios={this.props.instituicao.horarios}
                 />
               </Grid>
 
               <Grid className="email-telefone">
-                <Typography spacing = "5" align = "left" variant="body2" id="email">
-                   Email : {this.props.instituicao.email}
+                <Typography spacing="5" align="left" variant="body2" id="email">
+                  Email : {this.props.instituicao.email}
                 </Typography>
                 <Typography variant="body2">
                   Telefone : {this.props.instituicao.telefone}
