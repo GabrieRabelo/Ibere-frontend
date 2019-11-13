@@ -17,7 +17,7 @@ class DetalheInstituicaoContainer extends Component {
 
 
     this.state = {
-      descricao: this.props.instituicao.descricao.substring(0, 60)+'...',
+      descricao: this.props.instituicao.descricao.substring(0, 100)+'...',
       fullDescription: false
     };
   }
@@ -32,7 +32,7 @@ class DetalheInstituicaoContainer extends Component {
     } else {
       this.setState({
         fullDescription: false,
-        descricao: this.props.instituicao.descricao.substring(0, 20)
+        descricao: this.props.instituicao.descricao.substring(0, 100)+'...'
       });
     }
   };
@@ -62,6 +62,7 @@ class DetalheInstituicaoContainer extends Component {
                     <Typography
                       variant="subtitle2"
                       className="instituicao-fechada"
+                      style={{ color: 'red' }}
                     >
                       Fechado
                   </Typography>

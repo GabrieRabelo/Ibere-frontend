@@ -10,8 +10,7 @@ const DescricaoInstituicaoComponent = props => {
 
  
   return (
-    <Grid container className="descricaoContainer">
-      
+    <Grid container className="descricaoContainer">      
         <Typography className="descricao" variant="body1">
           {props.descricao}
         </Typography>
