@@ -16,7 +16,7 @@ class MapHeader extends Component {
               Mapas Culturais
             </Typography>
             <Typography color="textSecondary" variant="subtitle1">
-              Fundação Iberê Camargo
+              Fundação Iberê
             </Typography>
           </Box>
         </Box>
