@@ -1,0 +1,21 @@
+.body {
+    background-color: white;
+  }
+
+.main {
+  align-items: center;
+
+}
+
+.entrar {
+    background-color:transparent;
+    border-radius:30px;
+    border:1px solid #000000;
+    display:inline-block;
+    cursor:pointer;
+    color:#000000;
+    font-family:Arial;
+    font-size:17px;
+    padding:10px 170px;
+    text-decoration:none;
+}

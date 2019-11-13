@@ -1,0 +1,23 @@
+.HeaderADM {
+    background-color: white;
+}
+
+.img {
+    float: left;
+}
+
+.Titulo {
+    font: bold;
+    font-size: 29px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 25px;
+    padding-top: 20px;    
+}
+
+.SubTitulo {
+    font: bold;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: gray;
+
+}
