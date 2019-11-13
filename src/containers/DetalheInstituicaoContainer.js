@@ -17,7 +17,7 @@ class DetalheInstituicaoContainer extends Component {
 
 
     this.state = {
-      descricao: this.props.instituicao.descricao.substring(0, 100)+'...',
+      descricao: this.props.instituicao.descricao.substring(0, 100)+' ...',
       fullDescription: false
     };
   }
@@ -32,7 +32,7 @@ class DetalheInstituicaoContainer extends Component {
     } else {
       this.setState({
         fullDescription: false,
-        descricao: this.props.instituicao.descricao.substring(0, 100)+'...'
+        descricao: this.props.instituicao.descricao.substring(0, 100)+' ...'
       });
     }
   };
@@ -105,21 +105,32 @@ class DetalheInstituicaoContainer extends Component {
                   horarios={this.props.instituicao.horarios}
                 />
               </Grid>
-
+            <Grid>
               <Grid className="email-telefone">
                 <Typography spacing="5" align="left" variant="body2" id="email">
-                  Email : {this.props.instituicao.email}
+                  <b>Email:</b>  {this.props.instituicao.email}
                 </Typography>
                 <Typography variant="body2">
-                  Telefone : {this.props.instituicao.telefone}
+                  <b>Telefone:</b>  {this.props.instituicao.telefone}
                 </Typography>
               </Grid>
+              
+              <Grid className="observacoes">
+              {this.props.instituicao.observacoes ? (
+                  <Typography variant="body2">
+                    <b>Observações:</b> {this.props.instituicao.observacoes}
+                    </Typography>
+                ):(' ')}
+              </Grid>
+              
+            </Grid>
 
               <Grid item xs={5} className="contatoContainer">
                 <Typography variant="body2">
                   {this.props.instituicao.site ? this.props.site : ''}
                 </Typography>
               </Grid>
+             
             </Grid>
             <Grid item xs={12}>
               <CarouselComponent instituicao={this.props.instituicao} />
