@@ -3,6 +3,7 @@ import { Grid, Typography, Fab, ButtonBase } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
 import CarouselComponent from '../components/carrosselModal/carrosselComponent';
+import RedesSociaisComponent from '../components/redesSociais/RedesSociaisComponent'
 
 
 
@@ -105,6 +106,14 @@ class DetalheInstituicaoContainer extends Component {
                   horarios={this.props.instituicao.horarios}
                 />
               </Grid>
+
+              <Grid>
+                <RedesSociaisComponent social_media={this.props.instituicao.social_media} />
+              </Grid>
+
+              
+              
+
             <Grid>
               <Grid className="email-telefone">
                 <Typography spacing="5" align="left" variant="body2" id="email">
@@ -114,6 +123,11 @@ class DetalheInstituicaoContainer extends Component {
                   <b>Telefone:</b>  {this.props.instituicao.telefone}
                 </Typography>
               </Grid>
+
+              
+
+
+
               
               <Grid className="observacoes">
               {this.props.instituicao.observacoes ? (
@@ -122,6 +136,8 @@ class DetalheInstituicaoContainer extends Component {
                     </Typography>
                 ):(' ')}
               </Grid>
+
+             
               
             </Grid>
 

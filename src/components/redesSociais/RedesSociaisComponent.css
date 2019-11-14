@@ -1,22 +1,21 @@
-.containerTotal {
+.container-social-media{
     width: 100%;
     display: flex;
     flex-direction: column;
     color: #313131;
+    padding-bottom: 5%;
 }
 
-.horario {
+.social-media {
     font-weight: bold !important;
 }
 
-
-
-.dia{
-    font-size: 12px;
-    height: 25px;
+.tituloContainer{
+    display:flex;
+    justify-content: center;
 }
 
-.titulo-social-media{
+.rede{
     display:flex;
     justify-content: center;
 }
