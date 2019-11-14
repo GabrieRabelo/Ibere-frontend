@@ -41,7 +41,6 @@ class SidebarView extends Component {
     const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
     const listaRoteiros = await this.roteiroService.listaRoteiros();
     this.setState({ instituicoes: listaInstituicoes, roteiros: listaRoteiros });
-    this.ordernaInstituicoes();
   }
 
   ordernaInstituicoes() {
@@ -111,6 +110,9 @@ class SidebarView extends Component {
   };
 
   render() {
+    if (this.state.localizacao !== {}) {
+      this.ordernaInstituicoes();
+    }
     if (this.state.instituicoes) {
       return (
         <div>

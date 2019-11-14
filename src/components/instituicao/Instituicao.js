@@ -81,9 +81,12 @@ export class Instituicao extends Component {
                     Fechado
                   </Typography>
                 )}
-                <Typography component={'span'} className="distancia">
-                  {instituicao.distancia} {' Km'}
-                </Typography>
+
+                {isNaN(instituicao.distancia) ? null : (
+                  <Typography component={'span'} className="distancia">
+                    {instituicao.distancia} {' Km'}
+                  </Typography>
+                )}
               </React.Fragment>
             }
           />
