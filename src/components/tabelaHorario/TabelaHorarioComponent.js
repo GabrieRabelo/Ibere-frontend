@@ -22,7 +22,7 @@ class TabelaHorarioComponent extends React.Component {
               </Grid>
             </Grid>
           );
-        })}
+        })} 
       </Grid>
     );
   }
