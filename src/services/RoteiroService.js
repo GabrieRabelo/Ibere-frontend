@@ -7,7 +7,6 @@ const RESOURCES = {
 };
 
 class RoteiroService extends AbstractService {
-
   listaRoteiros() {
     let URL = RESOURCES.LISTA_ROTEIROS;
 

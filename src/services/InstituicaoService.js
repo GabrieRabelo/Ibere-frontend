@@ -7,7 +7,6 @@ const RESOURCES = {
 };
 
 class InstituicaoService extends AbstractService {
-
   listaInstituicoes() {
     let URL = RESOURCES.LISTA_INSTITUICOES;
 
