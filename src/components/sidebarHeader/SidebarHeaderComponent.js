@@ -19,7 +19,7 @@ class SidebarHeader extends Component {
             Mapas Culturais
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            Fundação Iberê Camargo
+            Fundação Iberê
           </Typography>
         </Box>
         <Box className="sidebar-header-logo">

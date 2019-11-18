@@ -31,15 +31,66 @@ class SidebarView extends Component {
       roteiros: [],
       value: 0,
       modalOpen: false,
-      sidebarOpen: true
+      sidebarOpen: true,
+      localizacao: {}
     };
   }
 
   async componentDidMount() {
+    this.getLocalizacao();
     const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
     const listaRoteiros = await this.roteiroService.listaRoteiros();
     this.setState({ instituicoes: listaInstituicoes, roteiros: listaRoteiros });
   }
+
+  ordernaInstituicoes() {
+    this.state.instituicoes.forEach(this.calcularDistancia);
+
+    this.state.instituicoes.sort(function(a, b) {
+      if (a.distancia < b.distancia) {
+        return -1;
+      }
+      if (b.distancia < a.distancia) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
+  calcularDistancia = instituicao => {
+    const lat2 = instituicao.latitude;
+    const lon2 = instituicao.longitude;
+    const lat1 = this.state.localizacao.latitude;
+    const lon1 = this.state.localizacao.longitude;
+
+    const R = 6371;
+    const x1 = lat2 - lat1;
+    const dLat = (x1 * Math.PI) / 180;
+    const x2 = lon2 - lon1;
+    const dLon = (x2 * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    instituicao.distancia = Math.round(R * c * 100) / 100;
+  };
+
+  getLocalizacao() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.setLocalizacao);
+    }
+  }
+
+  setLocalizacao = position => {
+    const localizacao = {
+      longitude: position.coords.longitude,
+      latitude: position.coords.latitude
+    };
+    this.setState({ localizacao: localizacao });
+  };
 
   a11yProps = index => {
     return {
@@ -59,6 +110,9 @@ class SidebarView extends Component {
   };
 
   render() {
+    if (this.state.localizacao !== {}) {
+      this.ordernaInstituicoes();
+    }
     if (this.state.instituicoes) {
       return (
         <div>
