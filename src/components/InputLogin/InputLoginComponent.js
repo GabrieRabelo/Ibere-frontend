@@ -9,7 +9,7 @@ export class CaixaUsuarioSenha extends Component {
     };
   }
   render() {
-    if (this.props.nome == 'Usuario') {
+    if (this.props.nome === 'Usuario') {
       return (
         <TextField
           variant="outlined"
