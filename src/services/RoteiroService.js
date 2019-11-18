@@ -1,6 +1,6 @@
 import AbstractService from './AbstractService';
 
-const BASE_URL = 'roteiros/';
+const BASE_URL = 'itinerario/';
 
 const RESOURCES = {
   LISTA_ROTEIROS: BASE_URL

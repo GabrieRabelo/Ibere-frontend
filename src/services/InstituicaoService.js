@@ -1,6 +1,6 @@
 import AbstractService from './AbstractService';
 
-const BASE_URL = 'instituicoes/';
+const BASE_URL = 'instituicao/';
 
 const RESOURCES = {
   LISTA_INSTITUICOES: BASE_URL
