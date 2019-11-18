@@ -6,10 +6,6 @@ import CarouselComponent from '../components/carrosselModal/carrosselComponent';
 import RedesSociaisComponent from '../components/redesSociais/RedesSociaisComponent';
 
 import NavigationIcon from '../assets/icons/navigation_icon.svg';
-
-
-import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
-
 import './DetalheInstituicao.css';
 
 
