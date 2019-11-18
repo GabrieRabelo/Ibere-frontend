@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Admin, Resource, EditGuesser } from 'react-admin';
+import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { InstituicaoList } from '../admin/instituicoes/list';
 import { InstituicaoCreate } from '../admin/instituicoes/create';
+import { InstituicaoEdit } from '../admin/instituicoes/edit';
 
 const dataProvider = jsonServerProvider(
-  'http://localhost:3001/api/v1'
+  'http://localhost:3000/api/v1'
 );
 
 export class TelaLogin extends Component {
@@ -15,7 +16,7 @@ export class TelaLogin extends Component {
         <Resource
           name="instituicao"
           list={InstituicaoList}
-          edit={EditGuesser}
+          edit={InstituicaoEdit}
           create={InstituicaoCreate}
         />
       </Admin>
