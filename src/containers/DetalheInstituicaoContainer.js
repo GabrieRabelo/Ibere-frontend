@@ -3,8 +3,9 @@ import { Grid, Typography, Fab, ButtonBase } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
 import CarouselComponent from '../components/carrosselModal/carrosselComponent';
-import RedesSociaisComponent from '../components/redesSociais/RedesSociaisComponent'
+import RedesSociaisComponent from '../components/redesSociais/RedesSociaisComponent';
 
+import NavigationIcon from '../assets/icons/navigation_icon.svg';
 
 
 import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
@@ -78,7 +79,7 @@ class DetalheInstituicaoContainer extends Component {
                 xs={2}
               >
                 <Fab href={"https://www.google.com/maps?saddr=My+Location&daddr=" + this.props.instituicao.latitude + "," + this.props.instituicao.longitude} color="inherit" className="btnRotas" size="small">
-                  <SubdirectoryArrowRightIcon />
+                  <img src={NavigationIcon} alt="navigate" width={50} height={50} />
                 </Fab>
               </Grid>
             </Grid>
@@ -91,7 +92,6 @@ class DetalheInstituicaoContainer extends Component {
                 />
               </ButtonBase>
             </Grid>
-
 
             <Grid
               className="horariosContatoContainer"
@@ -111,9 +111,6 @@ class DetalheInstituicaoContainer extends Component {
                 <RedesSociaisComponent social_media={this.props.instituicao.social_media} />
               </Grid>
 
-              
-              
-
             <Grid>
               <Grid className="email-telefone">
                 <Typography spacing="5" align="left" variant="body2" id="email">
@@ -124,21 +121,13 @@ class DetalheInstituicaoContainer extends Component {
                 </Typography>
               </Grid>
 
-              
-
-
-
-              
               <Grid className="observacoes">
               {this.props.instituicao.observacoes ? (
                   <Typography variant="body2">
                     <b>Observações:</b> {this.props.instituicao.observacoes}
                     </Typography>
                 ):(' ')}
-              </Grid>
-
-             
-              
+              </Grid>             
             </Grid>
 
               <Grid item xs={5} className="contatoContainer">
