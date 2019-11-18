@@ -14,7 +14,7 @@ class CarouselComponent extends React.Component {
 
   componentDidMount() {
     const images = this.props.imagens.map(img => {
-      return <img className="imagem" src={img.url} key={img} alt={''} />;
+      return <img className="imagem" src={img.url} key={img.id} alt={''} />;
     });
     this.setState({ images: images });
   }
