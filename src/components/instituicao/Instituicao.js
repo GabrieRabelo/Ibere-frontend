@@ -8,6 +8,8 @@ import {
   Paper
 } from '@material-ui/core';
 
+import { ExpandLess, ExpandMore } from '@material-ui/icons';
+
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
 
 import './Instituicao.css';
@@ -79,12 +81,18 @@ export class Instituicao extends Component {
                     Fechado
                   </Typography>
                 )}
-                <Typography component={'span'} className="distancia">
-                  {instituicao.distancia} {' Km'}
-                </Typography>
+
+                {isNaN(instituicao.distancia) ? null : (
+                  <Typography component={'span'} className="distancia">
+                    {instituicao.distancia} {' Km'}
+                  </Typography>
+                )}
               </React.Fragment>
             }
           />
+          <div className="seta">
+            {this.state.modalOpen ? <ExpandMore /> : <ExpandLess />}
+          </div>
         </ListItem>
         <Divider />
       </React.Fragment>

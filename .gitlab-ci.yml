@@ -1,0 +1,21 @@
+image: node:latest
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  except:
+    - master
+  script:
+    - npm install
+    - CI=false npm run-script build
+
+test:
+  stage: test
+  except:
+    - master
+  script:
+    - npm install
+    - npm test

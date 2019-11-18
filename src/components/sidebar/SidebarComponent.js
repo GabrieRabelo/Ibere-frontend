@@ -29,17 +29,68 @@ class SidebarView extends Component {
     this.state = {
       instituicoes: [],
       roteiros: [],
-      value: 1,
+      value: 0,
       modalOpen: false,
-      sidebarOpen: true
+      sidebarOpen: true,
+      localizacao: {}
     };
   }
 
   async componentDidMount() {
+    this.getLocalizacao();
     const listaInstituicoes = await this.instituicaoService.listaInstituicoes();
     const listaRoteiros = await this.roteiroService.listaRoteiros();
     this.setState({ instituicoes: listaInstituicoes, roteiros: listaRoteiros });
   }
+
+  ordernaInstituicoes() {
+    this.state.instituicoes.forEach(this.calcularDistancia);
+
+    this.state.instituicoes.sort(function(a, b) {
+      if (a.distancia < b.distancia) {
+        return -1;
+      }
+      if (b.distancia < a.distancia) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
+  calcularDistancia = instituicao => {
+    const lat2 = instituicao.latitude;
+    const lon2 = instituicao.longitude;
+    const lat1 = this.state.localizacao.latitude;
+    const lon1 = this.state.localizacao.longitude;
+
+    const R = 6371;
+    const x1 = lat2 - lat1;
+    const dLat = (x1 * Math.PI) / 180;
+    const x2 = lon2 - lon1;
+    const dLon = (x2 * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    instituicao.distancia = Math.round(R * c * 100) / 100;
+  };
+
+  getLocalizacao() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.setLocalizacao);
+    }
+  }
+
+  setLocalizacao = position => {
+    const localizacao = {
+      longitude: position.coords.longitude,
+      latitude: position.coords.latitude
+    };
+    this.setState({ localizacao: localizacao });
+  };
 
   a11yProps = index => {
     return {
@@ -59,27 +110,28 @@ class SidebarView extends Component {
   };
 
   render() {
+    if (this.state.localizacao !== {}) {
+      this.ordernaInstituicoes();
+    }
     if (this.state.instituicoes) {
       return (
         <div>
           <MapHeader open={this.toggleSidebar} />
 
           <Drawer open={this.state.sidebarOpen}>
-            <AppBar position="static" color="default">
+            <AppBar elevation={0} position="static" color="inherit">
               <SidebarHeader />
               <Divider />
 
-              <Tabs value={this.state.value} onChange={this.handleChange}>
-                <Tab
-                  label="ESPAÇOS"
-                  {...this.a11yProps(0)}
-                  style={{ width: '50%' }}
-                />
-                <Tab
-                  label="ROTEIROS"
-                  {...this.a11yProps(1)}
-                  style={{ width: '50%' }}
-                />
+              <Tabs
+                TabIndicatorProps={{
+                  className: 'aba-selecionada'
+                }}
+                value={this.state.value}
+                onChange={this.handleChange}
+              >
+                <Tab label="ESPAÇOS" {...this.a11yProps(0)} className="aba" />
+                <Tab label="ROTEIROS" {...this.a11yProps(1)} className="aba" />
               </Tabs>
             </AppBar>
             <TabPanel value={this.state.value} index={0}>

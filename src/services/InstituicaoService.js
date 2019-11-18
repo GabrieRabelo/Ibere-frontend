@@ -7,9 +7,6 @@ const RESOURCES = {
 };
 
 class InstituicaoService extends AbstractService {
-  constructor() {
-    super();
-  }
 
   listaInstituicoes() {
     let URL = RESOURCES.LISTA_INSTITUICOES;
