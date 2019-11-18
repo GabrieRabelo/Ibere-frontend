@@ -8,8 +8,8 @@ class RedesSociaisComponent extends Component {
         return (
             <Grid container className="container-social-media">
                 <Grid className="titulo-social-media">
-                    <Typography variant="subtitle1" className="social-media">
-                        Redes sociais
+                    <Typography variant="body2" className="social-media">
+                        <b>Redes sociais:</b>
                     </Typography>
                 </Grid>
                 {this.props.social_media.map(r => {
@@ -17,7 +17,7 @@ class RedesSociaisComponent extends Component {
                         <Grid container className="rede" key={r} >
                             <Grid >
                                 <Typography variant="body2">
-                                    {r}
+                                    {`- ${r}`}
                                 </Typography>
                             </Grid>
                         </Grid>

@@ -17,7 +17,7 @@
 
 .horariosContatoContainer {
     padding-top:20px;
-    word-spacing: 0.5em;
+
 }
 
 .email-telefone{
@@ -44,4 +44,5 @@
 .observacoes{
     display:flex;
     justify-content: flex-start;
+    padding-bottom:3%;
 }

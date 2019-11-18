@@ -19,7 +19,7 @@ class DetalheInstituicaoContainer extends Component {
 
 
     this.state = {
-      descricao: this.props.instituicao.descricao.substring(0, 100)+' ...',
+      descricao: this.props.instituicao.descricao.substring(0, 100) + ' ...',
       fullDescription: false
     };
   }
@@ -34,7 +34,7 @@ class DetalheInstituicaoContainer extends Component {
     } else {
       this.setState({
         fullDescription: false,
-        descricao: this.props.instituicao.descricao.substring(0, 100)+' ...'
+        descricao: this.props.instituicao.descricao.substring(0, 100) + ' ...'
       });
     }
   };
@@ -107,11 +107,6 @@ class DetalheInstituicaoContainer extends Component {
                 />
               </Grid>
 
-              <Grid>
-                <RedesSociaisComponent social_media={this.props.instituicao.social_media} />
-              </Grid>
-
-            <Grid>
               <Grid className="email-telefone">
                 <Typography spacing="5" align="left" variant="body2" id="email">
                   <b>Email:</b>  {this.props.instituicao.email}
@@ -119,23 +114,30 @@ class DetalheInstituicaoContainer extends Component {
                 <Typography variant="body2">
                   <b>Telefone:</b>  {this.props.instituicao.telefone}
                 </Typography>
-              </Grid>
 
-              <Grid className="observacoes">
-              {this.props.instituicao.observacoes ? (
-                  <Typography variant="body2">
-                    <b>Observações:</b> {this.props.instituicao.observacoes}
+                {this.props.instituicao.social_media ? (
+                  <RedesSociaisComponent social_media={this.props.instituicao.social_media} />
+                ) : (" ")}
+
+              </Grid>
+              <Grid>
+
+
+                <Grid className="observacoes">
+                  {this.props.instituicao.observacoes ? (
+                    <Typography variant="body2">
+                      <b>Observações:</b> {this.props.instituicao.observacoes}
                     </Typography>
-                ):(' ')}
-              </Grid>             
-            </Grid>
+                  ) : ("")}
+                </Grid>
+              </Grid>
 
               <Grid item xs={5} className="contatoContainer">
                 <Typography variant="body2">
                   {this.props.instituicao.site ? this.props.site : ''}
                 </Typography>
               </Grid>
-             
+
             </Grid>
             <Grid item xs={12}>
               <CarouselComponent instituicao={this.props.instituicao} />
