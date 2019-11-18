@@ -7,16 +7,18 @@ class TabelaHorarioComponent extends React.Component {
     return (
       <Grid className="containerTotal" container>
         <Grid className="tituloContainer" >
-          <Typography variant="subtitle1" className="horario" >
+          <Typography className="horarios" variant="subtitle1" className="horario" >
             Horários
           </Typography>
         </Grid>
+        
         {this.props.horarios.map(h => {
           return (
             <Grid container className="dia" key={h.dia}>
               <Grid item xs={4} >
                 <Typography  variant="body2"><b>{h.dia}</b></Typography>
               </Grid>
+              
               <Grid item xs={8}>
                 <Typography variant="body2">{`${h.horario_abertura} ----- ${h.horario_encerramento}`}</Typography>
               </Grid>

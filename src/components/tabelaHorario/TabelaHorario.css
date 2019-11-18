@@ -1,8 +1,7 @@
 .containerTotal {
     width: 100%;
-    display: flex;
-    flex-direction: column;
     color: #313131;
+    justify-content: center;
 }
 
 .horario {
@@ -15,7 +14,7 @@
     height: 25px;
 }
 
-.titulo-social-media{
+.tituloContainer{
     display:flex;
     justify-content: center;
 }
