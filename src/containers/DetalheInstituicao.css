@@ -1,6 +1,6 @@
 .container {
     padding: 20px 20px 10px 20px;
-    height: 100%;
+    height: 150%;
 }
 
 .container1 {
@@ -16,7 +16,12 @@
 }
 
 .horariosContatoContainer {
-    display: flex;
+    padding-top:20px;
+
+}
+
+.email-telefone{
+    padding-bottom: 20px;
 }
 
 .contatoContainer {
@@ -34,4 +39,10 @@
 
 #subtitulo2 {
     color: green;
+}
+
+.observacoes{
+    display:flex;
+    justify-content: flex-start;
+    padding-bottom:3%;
 }

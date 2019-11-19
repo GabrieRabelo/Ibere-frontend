@@ -8,7 +8,7 @@ export class HeaderADM extends Component {
       <div className="HeaderADM">
         <img width="30%" src={logo} alt="logo" className="img" />
         <h1 className="Titulo">Mapas Culturais</h1>
-        <h2 className="SubTitulo">Fundação Ibere Camargo</h2>
+        <h2 className="SubTitulo">Fundação Ibere</h2>
       </div>
     );
   }

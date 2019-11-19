@@ -8,7 +8,7 @@ import {
   Paper
 } from '@material-ui/core';
 
-import {ExpandLess, ExpandMore } from '@material-ui/icons';
+import { ExpandLess, ExpandMore } from '@material-ui/icons';
 
 import DetalheInstituicaoContainer from '../../containers/DetalheInstituicaoContainer';
 
@@ -24,11 +24,11 @@ export class Instituicao extends Component {
   }
 
   handleClose = () => {
-    this.setState({ modalOpen: false});
+    this.setState({ modalOpen: false });
   };
 
   handleOpen = () => {
-    this.setState({ modalOpen: true});
+    this.setState({ modalOpen: true });
   };
 
   modal = instituicao => {
@@ -81,14 +81,17 @@ export class Instituicao extends Component {
                     Fechado
                   </Typography>
                 )}
-                <Typography component={'span'} className="distancia">
-                  {instituicao.distancia} {' Km'}
-                </Typography>
+
+                {isNaN(instituicao.distancia) ? null : (
+                  <Typography component={'span'} className="distancia">
+                    {instituicao.distancia} {' Km'}
+                  </Typography>
+                )}
               </React.Fragment>
             }
           />
           <div className="seta">
-            {this.state.modalOpen ? <ExpandMore /> : <ExpandLess />}
+            {this.state.modalOpen ? <ExpandLess /> : <ExpandMore />}
           </div>
         </ListItem>
         <Divider />
