@@ -12,10 +12,7 @@ import {
   Toolbar
 } from 'react-admin';
 
-const PostEditToolbar = props => (
-    <Toolbar {...props} >
-    </Toolbar>
-);
+const PostEditToolbar = props => <Toolbar {...props}></Toolbar>;
 
 export const InstituicaoEdit = props => (
   <Edit {...props}>

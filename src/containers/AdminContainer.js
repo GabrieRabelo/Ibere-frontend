@@ -6,7 +6,7 @@ import { InstituicaoCreate } from '../admin/instituicoes/create';
 import { InstituicaoEdit } from '../admin/instituicoes/edit';
 
 const dataProvider = jsonServerProvider(
-  'http://localhost:3000/api/v1'
+  'http://www.hml.ages.pucrs.br:4301/api/v1'
 );
 
 export class TelaLogin extends Component {
