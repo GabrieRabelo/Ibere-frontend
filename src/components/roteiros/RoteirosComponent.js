@@ -30,7 +30,7 @@ export class Roteiros extends Component {
 
   render() {
     const { roteiros } = this.props;
-    if (roteiros === undefined) {
+    if (roteiros !== undefined) {
       return (
         <List>
           {roteiros.map(roteiro => {
