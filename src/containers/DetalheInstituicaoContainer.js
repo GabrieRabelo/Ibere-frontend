@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import { Grid, Typography, Fab } from '@material-ui/core';
+import { Grid, Typography, Fab, ButtonBase } from '@material-ui/core';
 import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioComponent';
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
 import CarouselComponent from '../components/carrosselModal/carrosselComponent';
+import RedesSociaisComponent from '../components/redesSociais/RedesSociaisComponent';
 import InstituicaoService from '../services/InstituicaoService';
 
-import SubdirectoryArrowRightIcon from '@material-ui/icons/SubdirectoryArrowRight';
-
+import NavigationIcon from '../assets/icons/navigation_icon.svg';
 import './DetalheInstituicao.css';
 
 class DetalheInstituicaoContainer extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
+      descricao: '',
+      fullDescription: false,
       instituicao: {}
     };
     this.instituicaoService = new InstituicaoService();
@@ -21,7 +24,22 @@ class DetalheInstituicaoContainer extends Component {
   async componentWillMount() {
     const instituicao = await this.instituicaoService.buscaPorId(this.props.id);
     this.setState({ instituicao: instituicao });
+    this.setState({ descricao: instituicao.descricao });
   }
+
+  openDescription = () => {
+    if (!this.state.fullDescription) {
+      this.setState({
+        fullDescription: true,
+        descricao: this.props.instituicao.descricao
+      });
+    } else {
+      this.setState({
+        fullDescription: false,
+        descricao: this.props.instituicao.descricao.substring(0, 100) + ' ...'
+      });
+    }
+  };
 
   render() {
     if (Object.keys(this.state.instituicao).length > 0) {
@@ -48,6 +66,7 @@ class DetalheInstituicaoContainer extends Component {
                     <Typography
                       variant="subtitle2"
                       className="instituicao-fechada"
+                      style={{ color: 'red' }}
                     >
                       Fechado
                     </Typography>
@@ -72,51 +91,86 @@ class DetalheInstituicaoContainer extends Component {
                     className="btnRotas"
                     size="small"
                   >
-                    <SubdirectoryArrowRightIcon />
+                    <img
+                      src={NavigationIcon}
+                      alt="navigate"
+                      width={50}
+                      height={50}
+                    />
                   </Fab>
                 </Grid>
               </Grid>
               <hr className="divider" />
-              <Grid item xs={12}>
-                <DescricaoInstituicaoComponent
-                  descricao={this.state.instituicao.descricao}
-                />
+
+              <Grid item xs={12} zeroMinWidth>
+                <ButtonBase onClick={this.openDescription}>
+                  <DescricaoInstituicaoComponent
+                    descricao={this.state.descricao}
+                  />
+                </ButtonBase>
               </Grid>
 
               <Grid
                 className="horariosContatoContainer"
                 container
-                justify="flex-start"
-                spacing={2}
+                spacing={3}
+                direction="column"
+                alignItems="center"
               >
                 <Grid item xs={7}>
                   <TabelaHorarioComponent
                     horarios={this.state.instituicao.horarios}
                   />
                 </Grid>
+
+                <Grid className="email-telefone">
+                  <Typography
+                    spacing="5"
+                    align="left"
+                    variant="body2"
+                    id="email"
+                  >
+                    <b>Email:</b> {this.state.instituicao.email}
+                  </Typography>
+                  <Typography variant="body2">
+                    <b>Telefone:</b> {this.state.instituicao.telefone}
+                  </Typography>
+
+                  {this.state.instituicao.social_media ? (
+                    <RedesSociaisComponent
+                      social_media={this.state.instituicao.social_media}
+                    />
+                  ) : (
+                    ' '
+                  )}
+                </Grid>
+                <Grid>
+                  <Grid className="observacoes">
+                    {this.state.instituicao.observacoes ? (
+                      <Typography variant="body2">
+                        <b>Observações:</b> {this.state.instituicao.observacoes}
+                      </Typography>
+                    ) : (
+                      ''
+                    )}
+                  </Grid>
+                </Grid>
+
                 <Grid item xs={5} className="contatoContainer">
-                  <Typography variant="body2" id="email">
-                    {this.state.instituicao.email}
-                  </Typography>
                   <Typography variant="body2">
-                    {this.state.instituicao.site
-                      ? this.state.instituicao.site
-                      : ''}
-                  </Typography>
-                  <Typography variant="body2">
-                    {this.state.instituicao.telefone}
+                    {this.state.instituicao.site ? this.state.site : ''}
                   </Typography>
                 </Grid>
               </Grid>
               <Grid item xs={12}>
-                <CarouselComponent imagens={this.state.instituicao.imagens} />
+                <CarouselComponent imagem={this.state.instituicao.imagens} />
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       );
     }
-    return <div>carregando</div>;
+    return <div>carregando...</div>;
   }
 }
 
