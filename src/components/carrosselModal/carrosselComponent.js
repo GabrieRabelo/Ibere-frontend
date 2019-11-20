@@ -5,9 +5,19 @@ import './carrosselComponent.css';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 class CarouselComponent extends React.Component {
-  images = this.props.instituicao.imagens.map(img => {
-    return <img className="imagem" src={img} key={img} alt={''} />;
-  });
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: []
+    };
+  }
+
+  componentDidMount() {
+    const images = this.state.images.map(img => {
+      return <img className="imagem" src={img.url} key={img.id} alt={''} />;
+    });
+    this.setState({ images: images });
+  }
 
   responsive = {
     0: { items: 1.2 },
@@ -22,7 +32,7 @@ class CarouselComponent extends React.Component {
   render() {
     return (
       <AliceCarousel
-        items={this.images}
+        items={this.state.images}
         buttonsDisabled
         dotsDisabled
         responsive={this.responsive}
@@ -30,5 +40,4 @@ class CarouselComponent extends React.Component {
     );
   }
 }
-
 export default CarouselComponent;
