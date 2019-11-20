@@ -46,7 +46,6 @@ export class Roteiros extends Component {
                       <ListItemText
                         className="titulo-roteiro"
                         primary={roteiro.nome}
-                        secondary="Em torno de 2h 50m"
                       />
                       {this.state[roteiro.nome] ? (
                         <ExpandLess />
