@@ -24,19 +24,19 @@ class DetalheInstituicaoContainer extends Component {
   async componentWillMount() {
     const instituicao = await this.instituicaoService.buscaPorId(this.props.id);
     this.setState({ instituicao: instituicao });
-    this.setState({ descricao: instituicao.descricao });
+    this.setState({ descricao: instituicao.descricao.substring(0, 70) + '...' });
   }
 
   openDescription = () => {
     if (!this.state.fullDescription) {
       this.setState({
         fullDescription: true,
-        descricao: this.props.instituicao.descricao
+        descricao: this.state.instituicao.descricao
       });
     } else {
       this.setState({
         fullDescription: false,
-        descricao: this.props.instituicao.descricao.substring(0, 100) + ' ...'
+        descricao: this.state.instituicao.descricao.substring(0, 70) + '...'
       });
     }
   };

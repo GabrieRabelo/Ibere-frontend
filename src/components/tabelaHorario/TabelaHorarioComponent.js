@@ -3,9 +3,6 @@ import { Grid, Typography } from '@material-ui/core';
 import './TabelaHorario.css';
 
 class TabelaHorarioComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <Grid className="containerTotal" container>
