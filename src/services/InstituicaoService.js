@@ -1,5 +1,10 @@
 import AbstractService from './AbstractService';
 
+const BASE_URL = 'instituicao/';
+
+const RESOURCES = {
+  LISTA_INSTITUICOES: BASE_URL
+};
 class InstituicaoService extends AbstractService {
   constructor(props) {
     super(props);
@@ -9,7 +14,7 @@ class InstituicaoService extends AbstractService {
   }
 
   listaInstituicoes() {
-    let URL = 'http://www.hml.ages.pucrs.br:4301/api/v1/instituicao';
+    let URL = RESOURCES.LISTA_INSTITUICOES;
 
     return this.axios
       .get(URL)
@@ -22,7 +27,8 @@ class InstituicaoService extends AbstractService {
   }
 
   buscaPorId(id) {
-    let URL = `http://www.hml.ages.pucrs.br:4301/api/v1/instituicao/${id}`;
+    let URL = RESOURCES.LISTA_INSTITUICOES;
+    URL += `${id}`;
 
     return this.axios
       .get(URL)
