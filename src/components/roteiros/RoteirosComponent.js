@@ -30,63 +30,67 @@ export class Roteiros extends Component {
 
   render() {
     const { roteiros } = this.props;
+    if (roteiros !== undefined) {
+      return (
+        <List>
+          {roteiros.map(roteiro => {
+            return (
+              <React.Fragment key={roteiro.id}>
+                {roteiro != null ? (
+                  <React.Fragment>
+                    <ListItem
+                      button
+                      onClick={this.handleClick.bind(this, roteiro.nome)}
+                    >
+                      <img src={MapIcon} alt="pointer" />
+                      <ListItemText
+                        className="titulo-roteiro"
+                        primary={roteiro.nome}
+                      />
+                      {this.state[roteiro.nome] ? (
+                        <ExpandLess />
+                      ) : (
+                        <ExpandMore />
+                      )}
+                    </ListItem>
+                    <Collapse
+                      component="li"
+                      in={this.state[roteiro.nome]}
+                      timeout="auto"
+                      unmountOnExit
+                    >
+                      <List disablePadding>
+                        <Divider />
+                        {roteiro.instituicoes.map(instituicao => {
+                          return (
+                            <InstituicaoRoteiro
+                              instituicao={instituicao}
+                              key={instituicao.id}
+                            />
+                          );
+                        })}
+                      </List>
 
-    return (
-      <List>
-        {roteiros.map(roteiro => {
-          return (
-            <React.Fragment key={roteiro.id}>
-              {roteiro != null ? (
-                <React.Fragment>
-                  <ListItem
-                    button
-                    onClick={this.handleClick.bind(this, roteiro.nome)}
-                  >
-                    <img src={MapIcon} alt="pointer" />
-                    <ListItemText
-                      className="titulo-roteiro"
-                      primary={roteiro.nome}
-                      secondary="Em torno de 2h 50m"
-                    />
-                    {this.state[roteiro.nome] ? <ExpandLess /> : <ExpandMore />}
+                      <div className="rotas">
+                        <Button variant="outlined">
+                          <SubdirectoryArrowRight />
+                          ROTAS
+                        </Button>
+                      </div>
+                    </Collapse>
+                  </React.Fragment>
+                ) : (
+                  <ListItem onClick={this.handleClick.bind(this, roteiro.nome)}>
+                    <ListItemText primary={roteiro.name} />
                   </ListItem>
-                  <Collapse
-                    component="li"
-                    in={this.state[roteiro.nome]}
-                    timeout="auto"
-                    unmountOnExit
-                  >
-                    <List disablePadding>
-                      <Divider />
-                      {roteiro.instituicoes.map(instituicao => {
-                        return (
-                          <InstituicaoRoteiro
-                            instituicao={instituicao}
-                            key={instituicao.id}
-                          />
-                        );
-                      })}
-                    </List>
-
-                    <div className="rotas">
-                      <Button className="botao-rota" variant="outlined">
-                        <SubdirectoryArrowRight />
-                        <span className="botao-rota-info">ROTAS</span>
-                      </Button>
-                    </div>
-                  </Collapse>
-                </React.Fragment>
-              ) : (
-                <ListItem onClick={this.handleClick.bind(this, roteiro.nome)}>
-                  <ListItemText primary={roteiro.name} />
-                </ListItem>
-              )}
-            </React.Fragment>
-          );
-        })}
-        <Divider />
-      </List>
-    );
+                )}
+              </React.Fragment>
+            );
+          })}
+          <Divider />
+        </List>
+      );
+    } else return null;
   }
 }
 

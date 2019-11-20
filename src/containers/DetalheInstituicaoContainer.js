@@ -4,20 +4,27 @@ import TabelaHorarioComponent from '../components/tabelaHorario/TabelaHorarioCom
 import DescricaoInstituicaoComponent from '../components/descricaoInstituicao/DescricaoInstituicaoComponent';
 import CarouselComponent from '../components/carrosselModal/carrosselComponent';
 import RedesSociaisComponent from '../components/redesSociais/RedesSociaisComponent';
+import InstituicaoService from '../services/InstituicaoService';
 
 import NavigationIcon from '../assets/icons/navigation_icon.svg';
 import './DetalheInstituicao.css';
 
-
 class DetalheInstituicaoContainer extends Component {
   constructor(props) {
-    super(props)
-
+    super(props);
 
     this.state = {
-      descricao: this.props.instituicao.descricao.substring(0, 100) + ' ...',
-      fullDescription: false
+      descricao: '',
+      fullDescription: false,
+      instituicao: {}
     };
+    this.instituicaoService = new InstituicaoService();
+  }
+
+  async componentWillMount() {
+    const instituicao = await this.instituicaoService.buscaPorId(this.props.id);
+    this.setState({ instituicao: instituicao });
+    this.setState({ descricao: instituicao.descricao });
   }
 
   openDescription = () => {
@@ -25,7 +32,6 @@ class DetalheInstituicaoContainer extends Component {
       this.setState({
         fullDescription: true,
         descricao: this.props.instituicao.descricao
-
       });
     } else {
       this.setState({
@@ -35,113 +41,136 @@ class DetalheInstituicaoContainer extends Component {
     }
   };
 
-
   render() {
-    return (
-      <Grid className="container" justify="center" container>
-        <Grid item xs={12}>
+    if (Object.keys(this.state.instituicao).length > 0) {
+      return (
+        <Grid className="container" justify="center" container>
           <Grid item xs={12}>
-            <Grid className="container1" container>
-              <Grid item xs={10}>
-                <Typography className="titulo" variant="h5">
-                  {this.props.instituicao.nome}
-                </Typography>
-                <Typography variant="subtitle1">
-                  {this.props.instituicao.endereco}
-                </Typography>
-                {this.props.instituicao.aberto ? (
-                  <Typography
-                    variant="subtitle2"
-                    className="instituicao-aberta"
-                  >
-                    Aberto
+            <Grid item xs={12}>
+              <Grid className="container1" container>
+                <Grid item xs={10}>
+                  <Typography className="titulo" variant="h5">
+                    {this.state.instituicao.nome}
                   </Typography>
-                ) : (
+                  <Typography variant="subtitle1">
+                    {this.state.instituicao.endereco}
+                  </Typography>
+                  {this.state.instituicao.aberto ? (
+                    <Typography
+                      variant="subtitle2"
+                      className="instituicao-aberta"
+                    >
+                      Aberto
+                    </Typography>
+                  ) : (
                     <Typography
                       variant="subtitle2"
                       className="instituicao-fechada"
                       style={{ color: 'red' }}
                     >
                       Fechado
-                  </Typography>
-                  )}
-              </Grid>
-              <Grid
-                container
-                className="btnContainer"
-                direction="row"
-                justify="flex-end"
-                item
-                xs={2}
-              >
-                <Fab href={"https://www.google.com/maps?saddr=My+Location&daddr=" + this.props.instituicao.latitude + "," + this.props.instituicao.longitude} color="inherit" className="btnRotas" size="small">
-                  <img src={NavigationIcon} alt="navigate" width={50} height={50} />
-                </Fab>
-              </Grid>
-            </Grid>
-            <hr className="divider" />
-
-            <Grid item xs={12} zeroMinWidth>
-              <ButtonBase onClick={this.openDescription} >
-                <DescricaoInstituicaoComponent
-                  descricao={this.state.descricao}
-                />
-              </ButtonBase>
-            </Grid>
-
-            <Grid
-              className="horariosContatoContainer"
-              container
-              spacing={3}
-              direction="column"
-              alignItems="center"
-
-            >
-              <Grid item xs={7}>
-                <TabelaHorarioComponent
-                  horarios={this.props.instituicao.horarios}
-                />
-              </Grid>
-
-              <Grid className="email-telefone">
-                <Typography spacing="5" align="left" variant="body2" id="email">
-                  <b>Email:</b>  {this.props.instituicao.email}
-                </Typography>
-                <Typography variant="body2">
-                  <b>Telefone:</b>  {this.props.instituicao.telefone}
-                </Typography>
-
-                {this.props.instituicao.social_media ? (
-                  <RedesSociaisComponent social_media={this.props.instituicao.social_media} />
-                ) : (" ")}
-
-              </Grid>
-              <Grid>
-
-
-                <Grid className="observacoes">
-                  {this.props.instituicao.observacoes ? (
-                    <Typography variant="body2">
-                      <b>Observações:</b> {this.props.instituicao.observacoes}
                     </Typography>
-                  ) : ("")}
+                  )}
+                </Grid>
+                <Grid
+                  container
+                  className="btnContainer"
+                  direction="row"
+                  justify="flex-end"
+                  item
+                  xs={2}
+                >
+                  <Fab
+                    href={
+                      'https://www.google.com/maps?saddr=My+Location&daddr=' +
+                      this.state.instituicao.latitude +
+                      ',' +
+                      this.state.instituicao.longitude
+                    }
+                    color="inherit"
+                    className="btnRotas"
+                    size="small"
+                  >
+                    <img
+                      src={NavigationIcon}
+                      alt="navigate"
+                      width={50}
+                      height={50}
+                    />
+                  </Fab>
                 </Grid>
               </Grid>
+              <hr className="divider" />
 
-              <Grid item xs={5} className="contatoContainer">
-                <Typography variant="body2">
-                  {this.props.instituicao.site ? this.props.site : ''}
-                </Typography>
+              <Grid item xs={12} zeroMinWidth>
+                <ButtonBase onClick={this.openDescription}>
+                  <DescricaoInstituicaoComponent
+                    descricao={this.state.descricao}
+                  />
+                </ButtonBase>
               </Grid>
 
-            </Grid>
-            <Grid item xs={12}>
-              <CarouselComponent instituicao={this.props.instituicao} />
+              <Grid
+                className="horariosContatoContainer"
+                container
+                spacing={3}
+                direction="column"
+                alignItems="center"
+              >
+                <Grid item xs={7}>
+                  <TabelaHorarioComponent
+                    horarios={this.state.instituicao.horarios}
+                  />
+                </Grid>
+
+                <Grid className="email-telefone">
+                  <Typography
+                    spacing="5"
+                    align="left"
+                    variant="body2"
+                    id="email"
+                  >
+                    <b>Email:</b> {this.state.instituicao.email}
+                  </Typography>
+                  <Typography variant="body2">
+                    <b>Telefone:</b> {this.state.instituicao.telefone}
+                  </Typography>
+
+                  {this.state.instituicao.social_media ? (
+                    <RedesSociaisComponent
+                      social_media={this.state.instituicao.social_media}
+                    />
+                  ) : (
+                    ' '
+                  )}
+                </Grid>
+                <Grid>
+                  <Grid className="observacoes">
+                    {this.state.instituicao.observacoes ? (
+                      <Typography variant="body2">
+                        <b>Observações:</b> {this.state.instituicao.observacoes}
+                      </Typography>
+                    ) : (
+                      ''
+                    )}
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={5} className="contatoContainer">
+                  <Typography variant="body2">
+                    {this.state.instituicao.site ? this.state.site : ''}
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <CarouselComponent imagem={this.state.instituicao.imagens} />
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    );
+      );
+    }
+    return <div>carregando...</div>;
   }
 }
 

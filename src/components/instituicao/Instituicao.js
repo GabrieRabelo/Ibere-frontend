@@ -39,7 +39,7 @@ export class Instituicao extends Component {
         className="modal-instituicao"
       >
         <Paper className="conteudo-modal-instituicao">
-          <DetalheInstituicaoContainer instituicao={instituicao} />
+          <DetalheInstituicaoContainer id={instituicao.id} />
         </Paper>
       </Modal>
     );
