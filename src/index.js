@@ -11,8 +11,8 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={App} />
-      <Route exact  path="/admin" component={LoginContainer} />
-      <Route exact  path="/admin-info" component={AdminContainer} />
+      <Route exact path="/admin" component={LoginContainer} />
+      <Route exact path="/admin-info" component={AdminContainer} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')

@@ -24,7 +24,9 @@ class DetalheInstituicaoContainer extends Component {
   async componentWillMount() {
     const instituicao = await this.instituicaoService.buscaPorId(this.props.id);
     this.setState({ instituicao: instituicao });
-    this.setState({ descricao: instituicao.descricao.substring(0, 70) + '...' });
+    this.setState({
+      descricao: instituicao.descricao.substring(0, 70) + '...'
+    });
   }
 
   openDescription = () => {
@@ -102,7 +104,8 @@ class DetalheInstituicaoContainer extends Component {
               </Grid>
               <hr className="divider" />
 
-              <Grid item xs={12} zeroMinWidth>
+              <Grid item xs={12} zeroMinWidth container direction="column"
+                alignItems="center">
                 <ButtonBase onClick={this.openDescription}>
                   <DescricaoInstituicaoComponent
                     descricao={this.state.descricao}
