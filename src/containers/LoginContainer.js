@@ -4,6 +4,8 @@ import CaixaUsuarioSenha from '../components/InputLogin/InputLoginComponent';
 import HeaderADMComponent from '../components/headerADM/HeaderADMComponent';
 import './LoginContainer.css';
 import Button from '@material-ui/core/Button';
+import AutenticacaoService from '../services/AutenticacaoService';
+import AdminContainer from './AdminContainer';
 
 export class TelaLogin extends Component {
   constructor(props) {
@@ -12,9 +14,17 @@ export class TelaLogin extends Component {
       usuario: '',
       senha: ''
     };
+    this.autenticacaoService = new AutenticacaoService();
   }
 
-  handleClick = () => {};
+  handleClick = () => {
+     if (this.autenticacaoService(this.state.usuario, this.state.senha) == 201) {
+
+     } else {
+
+     }
+
+  };
 
   onChangeUsuario = event => {
     this.setState({ usuario: event.target.value });
