@@ -12,11 +12,12 @@ class RedesSociaisComponent extends Component {
             <b>Redes sociais:</b>
           </Typography>
         </Grid>
-        {this.props.social_media.map(r => {
+
+        {this.props.redes.map(r => {
           return (
-            <Grid container className="rede" key={r}>
+            <Grid container className="rede" key={r.id}>
               <Grid>
-                <Typography variant="body2">{`- ${r}`}</Typography>
+                <Typography variant="body2">{`- ${r.redeSocial}`}</Typography>
               </Grid>
             </Grid>
           );

@@ -136,9 +136,9 @@ class DetalheInstituicaoContainer extends Component {
                     <b>Telefone:</b> {this.state.instituicao.telefone}
                   </Typography>
 
-                  {this.state.instituicao.social_media ? (
+                  {this.state.instituicao.redes ? (
                     <RedesSociaisComponent
-                      social_media={this.state.instituicao.social_media}
+                      redes={this.state.instituicao.redes}
                     />
                   ) : (
                     ' '
