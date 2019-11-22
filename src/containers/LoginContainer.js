@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Container from '@material-ui/core/Container';
 import CaixaUsuarioSenha from '../components/InputLogin/InputLoginComponent';
 import HeaderADMComponent from '../components/headerADM/HeaderADMComponent';
+import { Redirect, Route } from 'react-router-dom';
 import './LoginContainer.css';
 import Button from '@material-ui/core/Button';
 import AutenticacaoService from '../services/AutenticacaoService';
-import AdminContainer from './AdminContainer';
 
 export class TelaLogin extends Component {
   constructor(props) {
@@ -16,14 +16,21 @@ export class TelaLogin extends Component {
     };
     this.autenticacaoService = new AutenticacaoService();
   }
-
   handleClick = () => {
-     if (this.autenticacaoService(this.state.usuario, this.state.senha) == 201) {
+    const result = this.autenticacaoService.autenticacaoLogin(
+      this.state.usuario,
+      this.state.senha
+    );
 
-     } else {
+    this.renderRedirect(result);
+  };
 
-     }
-
+  renderRedirect = result => {
+    if (result == 201) {
+      return <Redirect to="/admin-info" />;
+    } else {
+      return <Redirect to="/admin" />
+    }
   };
 
   onChangeUsuario = event => {

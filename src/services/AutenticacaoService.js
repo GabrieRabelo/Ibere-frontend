@@ -10,16 +10,12 @@ class AutenticacaoService extends AbstractService {
     super(props);
   }
 
-  listaInstituicoes(usuario, senha) {
+  autenticacaoLogin(usuario, senha) {
     let URL = RESOURCES.AUTENTICA_DADOS;
-
     return this.axios
       .post(URL, { login: usuario, senha: senha })
       .then((result: Response) => {
-        return result.data;
-      })
-      .catch(error => {
-        return error.response.data.message;
+        return result.status;
       });
   }
 }
