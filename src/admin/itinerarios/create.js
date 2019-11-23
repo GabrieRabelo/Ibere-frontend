@@ -5,7 +5,6 @@ import {
   SimpleForm,
   NumberInput,
   TextInput,
-  LongTextInput,
   ArrayInput,
   SimpleFormIterator
 } from 'react-admin';
