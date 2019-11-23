@@ -22,13 +22,13 @@ class RoteiroService extends AbstractService {
 
   montaRoteiro(roteiro) {
     let instituicoes = roteiro.instituicoes;
-    let str = "https://www.google.com/maps/dir/My+Location/"
-  
-    instituicoes.forEach(i => {
-      str += `${i.latitude},${i.longitude}/`
-    })
+    let str = 'https://www.google.com/maps/dir/My+Location/';
 
-    return str
+    instituicoes.forEach(i => {
+      str += `${i.latitude},${i.longitude}/`;
+    });
+
+    return str;
   }
 }
 

@@ -15,7 +15,7 @@ import {
 
 import MapIcon from '../../assets/icons/map_icon.svg';
 import './roteiros.css';
-import RoteiroService from '../../services/RoteiroService'
+import RoteiroService from '../../services/RoteiroService';
 import InstituicaoRoteiro from '../instituicaoRoteiro/InstituicaoRoteiro';
 
 export class Roteiros extends Component {
@@ -24,7 +24,7 @@ export class Roteiros extends Component {
 
     this.state = {};
 
-    this.roteirosService = new RoteiroService()
+    this.roteirosService = new RoteiroService();
   }
 
   handleClick = e => {
@@ -75,7 +75,10 @@ export class Roteiros extends Component {
                       </List>
 
                       <div className="rotas">
-                        <Button variant="outlined" href={this.roteirosService.montaRoteiro(roteiro)}>
+                        <Button
+                          variant="outlined"
+                          href={this.roteirosService.montaRoteiro(roteiro)}
+                        >
                           <SubdirectoryArrowRight />
                           ROTAS
                         </Button>
