@@ -65,14 +65,14 @@ class DetalheInstituicaoContainer extends Component {
                       Aberto
                     </Typography>
                   ) : (
-                      <Typography
-                        variant="subtitle2"
-                        className="instituicao-fechada"
-                        style={{ color: 'red' }}
-                      >
-                        Fechado
+                    <Typography
+                      variant="subtitle2"
+                      className="instituicao-fechada"
+                      style={{ color: 'red' }}
+                    >
+                      Fechado
                     </Typography>
-                    )}
+                  )}
                 </Grid>
                 <Grid
                   container
@@ -104,8 +104,14 @@ class DetalheInstituicaoContainer extends Component {
               </Grid>
               <hr className="divider" />
 
-              <Grid item xs={12} zeroMinWidth container direction="column"
-                alignItems="center">
+              <Grid
+                item
+                xs={12}
+                zeroMinWidth
+                container
+                direction="column"
+                alignItems="center"
+              >
                 <ButtonBase onClick={this.openDescription}>
                   <DescricaoInstituicaoComponent
                     descricao={this.state.descricao}
@@ -127,32 +133,36 @@ class DetalheInstituicaoContainer extends Component {
                 </Grid>
 
                 <Grid className="email-telefone">
-
-                  {this.state.instituicao.email ?
+                  {this.state.instituicao.email ? (
                     <Typography variant="body2">
                       <b>Email:</b> {this.state.instituicao.email}
                     </Typography>
-                    : ''}
+                  ) : (
+                    ''
+                  )}
 
                   <Typography variant="body2">
                     <b>Telefone:</b> {this.state.instituicao.telefone}
                   </Typography>
 
-                  {this.state.instituicao.redes ?
+                  {this.state.instituicao.redes ? (
                     <RedesSociaisComponent
                       redes={this.state.instituicao.redes}
                     />
-                    : ''}
-
+                  ) : (
+                    ''
+                  )}
                 </Grid>
 
                 <Grid>
                   <Grid className="observacoes">
-                    {this.state.instituicao.observacoes ?
+                    {this.state.instituicao.observacoes ? (
                       <Typography variant="body2">
                         <b>Observações:</b> {this.state.instituicao.observacoes}
                       </Typography>
-                      : ''}
+                    ) : (
+                      ''
+                    )}
                   </Grid>
                 </Grid>
 

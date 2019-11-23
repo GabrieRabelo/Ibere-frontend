@@ -5,13 +5,11 @@ import './carrosselComponent.css';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 class CarouselComponent extends React.Component {
-  
-
   loadImages = () => {
     return this.props.imagens.map(img => {
       return <img className="imagem" src={img.url} key={img.id} alt={''} />;
     });
-  }
+  };
 
   responsive = {
     0: { items: 1.2 },
@@ -25,12 +23,8 @@ class CarouselComponent extends React.Component {
 
   render() {
     return (
-      <AliceCarousel
-        buttonsDisabled
-        dotsDisabled
-        responsive={this.responsive}
-      >
-      {this.loadImages()}
+      <AliceCarousel buttonsDisabled dotsDisabled responsive={this.responsive}>
+        {this.loadImages()}
       </AliceCarousel>
     );
   }
