@@ -19,8 +19,6 @@ class MapView extends Component {
       selectedPlace: {},
       defaultMarks: []
     };
-
-    
   }
 
   async componentDidMount() {
@@ -47,10 +45,7 @@ class MapView extends Component {
   render() {
     return (
       <Grid>
-        <CurrentLocation 
-          centerAroundCurrentLocation 
-          google={this.props.google} 
-        >
+        <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
           <Marker onClick={this.onMarkerClick} name={'Localização atual'} />
 
           {this.state.defaultMarks.map((store, index) => (

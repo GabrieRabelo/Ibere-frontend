@@ -26,7 +26,7 @@ export class Roteiros extends Component {
 
   handleClick = e => {
     this.setState({ [e]: !this.state[e] });
-   };
+  };
 
   render() {
     const { roteiros } = this.props;

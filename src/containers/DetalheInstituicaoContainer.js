@@ -25,8 +25,6 @@ class DetalheInstituicaoContainer extends Component {
     const instituicao = await this.instituicaoService.buscaPorId(this.props.id);
     this.setState({ instituicao: instituicao });
     this.setState({ descricao: instituicao.descricao });
-
-    console.log(this.UNSAFE_componentWillUpdate)
   }
 
   openDescription = () => {
