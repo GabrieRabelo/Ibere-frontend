@@ -10,9 +10,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={App} />
       <Route path="/admin" component={LoginContainer} />
       <Route path="/admin-info" component={AdminContainer} />
+      <Route path="/" component={App} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
