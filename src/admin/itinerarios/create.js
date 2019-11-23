@@ -20,14 +20,6 @@ export const ItinerarioCreate = props => (
       <ArrayInput source="instituicoes">
         <SimpleFormIterator>
           <TextInput source="id" />
-          <LongTextInput source="descricao" />
-          <TextInput source="endereco" />
-          <NumberInput source="latitude" />
-          <NumberInput source="longitude" />
-          <TextInput source="nome" />
-          <TextInput source="observacoes" />
-          <TextInput source="telefone" />
-          <NumberInput source="tempoVisita" />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>
