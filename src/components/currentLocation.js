@@ -59,7 +59,7 @@ export class CurrentLocation extends React.Component {
       // eslint-disable-next-line react/no-find-dom-node
       const node = ReactDOM.findDOMNode(mapRef);
       let { zoom } = this.props;
-     
+
       const { lat, lng } = this.state.currentLocation;
       const center = new maps.LatLng(lat, lng);
       const styles = [
@@ -168,9 +168,8 @@ export class CurrentLocation extends React.Component {
             }
           ]
         }
-      ]
+      ];
       const mapConfig = Object.assign(
-     
         {},
         {
           center: center,
