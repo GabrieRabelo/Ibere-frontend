@@ -166,7 +166,7 @@ class DetalheInstituicaoContainer extends Component {
                 </Grid>
               </Grid>
               <Grid item xs={12}>
-                <CarouselComponent imagem={this.state.instituicao.imagens} />
+                <CarouselComponent imagens={this.state.instituicao.imagens} />
               </Grid>
             </Grid>
           </Grid>
