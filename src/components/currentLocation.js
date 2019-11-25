@@ -59,123 +59,124 @@ export class CurrentLocation extends React.Component {
       // eslint-disable-next-line react/no-find-dom-node
       const node = ReactDOM.findDOMNode(mapRef);
       let { zoom } = this.props;
+
       const { lat, lng } = this.state.currentLocation;
       const center = new maps.LatLng(lat, lng);
+      const styles = [
+        {
+          featureType: 'administrative',
+          elementType: 'all',
+          styles: [
+            {
+              visibility: 'on'
+            },
+            {
+              saturation: -100
+            },
+            {
+              lightness: 20
+            }
+          ]
+        },
+        {
+          featureType: 'road',
+          elementType: 'all',
+          stylers: [
+            {
+              visibility: 'on'
+            },
+            {
+              saturation: -100
+            },
+            {
+              lightness: 40
+            }
+          ]
+        },
+        {
+          featureType: 'water',
+          elementType: 'all',
+          stylers: [
+            {
+              visibility: 'on'
+            },
+            {
+              saturation: -10
+            },
+            {
+              lightness: 30
+            }
+          ]
+        },
+        {
+          featureType: 'landscape.man_made',
+          elementType: 'all',
+          stylers: [
+            {
+              visibility: 'simplified'
+            },
+            {
+              saturation: -60
+            },
+            {
+              lightness: 10
+            }
+          ]
+        },
+        {
+          featureType: 'landscape.natural',
+          elementType: 'all',
+          stylers: [
+            {
+              visibility: 'simplified'
+            },
+            {
+              saturation: -60
+            },
+            {
+              lightness: 60
+            }
+          ]
+        },
+        {
+          featureType: 'poi',
+          elementType: 'all',
+          stylers: [
+            {
+              visibility: 'off'
+            },
+            {
+              saturation: -100
+            },
+            {
+              lightness: 60
+            }
+          ]
+        },
+        {
+          featureType: 'transit',
+          elementType: 'all',
+          stylers: [
+            {
+              visibility: 'off'
+            },
+            {
+              saturation: -100
+            },
+            {
+              lightness: 60
+            }
+          ]
+        }
+      ];
       const mapConfig = Object.assign(
         {},
         {
           center: center,
           zoom: zoom,
-          styles: [
-            {
-              featureType: 'administrative',
-              elementType: 'all',
-              stylers: [
-                {
-                  visibility: 'on'
-                },
-                {
-                  saturation: -100
-                },
-                {
-                  lightness: 20
-                }
-              ]
-            },
-            {
-              featureType: 'road',
-              elementType: 'all',
-              stylers: [
-                {
-                  visibility: 'on'
-                },
-                {
-                  saturation: -100
-                },
-                {
-                  lightness: 40
-                }
-              ]
-            },
-            {
-              featureType: 'water',
-              elementType: 'all',
-              stylers: [
-                {
-                  visibility: 'on'
-                },
-                {
-                  saturation: -10
-                },
-                {
-                  lightness: 30
-                }
-              ]
-            },
-            {
-              featureType: 'landscape.man_made',
-              elementType: 'all',
-              stylers: [
-                {
-                  visibility: 'simplified'
-                },
-                {
-                  saturation: -60
-                },
-                {
-                  lightness: 10
-                }
-              ]
-            },
-            {
-              featureType: 'landscape.natural',
-              elementType: 'all',
-              stylers: [
-                {
-                  visibility: 'simplified'
-                },
-                {
-                  saturation: -60
-                },
-                {
-                  lightness: 60
-                }
-              ]
-            },
-            {
-              featureType: 'poi',
-              elementType: 'all',
-              stylers: [
-                {
-                  visibility: 'off'
-                },
-                {
-                  saturation: -100
-                },
-                {
-                  lightness: 60
-                }
-              ]
-            },
-            {
-              featureType: 'transit',
-              elementType: 'all',
-              stylers: [
-                {
-                  visibility: 'off'
-                },
-                {
-                  saturation: -100
-                },
-                {
-                  lightness: 60
-                }
-              ]
-            }
-          ]
+          styles: styles
         }
       );
-      // maps.Map() is constructor that instantiates the map
       this.map = new maps.Map(node, mapConfig);
     }
   }
