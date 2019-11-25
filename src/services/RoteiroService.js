@@ -19,6 +19,17 @@ class RoteiroService extends AbstractService {
         return error.response.data.message;
       });
   }
+
+  montaRoteiro(roteiro) {
+    let instituicoes = roteiro.instituicoes;
+    let str = 'https://www.google.com/maps/dir/My+Location/';
+
+    instituicoes.forEach(i => {
+      str += `${i.latitude},${i.longitude}/`;
+    });
+
+    return str;
+  }
 }
 
 export default RoteiroService;

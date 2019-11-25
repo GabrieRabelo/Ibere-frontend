@@ -3,9 +3,6 @@ import { Grid, Typography } from '@material-ui/core';
 import './TabelaHorario.css';
 
 class TabelaHorarioComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <Grid className="containerTotal" container>
@@ -17,7 +14,13 @@ class TabelaHorarioComponent extends React.Component {
 
         {this.props.horarios.map(h => {
           return (
-            <Grid container className="dia" key={h.id}>
+            <Grid
+              container
+              direction="column"
+              alignItems="center"
+              className="dia"
+              key={h.id}
+            >
               <Grid item xs={4}>
                 <Typography variant="body2">
                   <b>{h.dia}</b>
